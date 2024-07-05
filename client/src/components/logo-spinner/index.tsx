@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Animated, View } from "react-native";
-import comicVineLogo from "src/assets/comic-vine-logo.png";
+import comicVineLogo from "src/assets/images/comic-vine-logo.png";
 import { styles } from "./styles";
 
 const LogoSpinner: React.FC = () => {
@@ -12,23 +12,11 @@ const LogoSpinner: React.FC = () => {
       Animated.parallel([
         Animated.sequence([
           Animated.timing(opacityAnim, {
-            toValue: .2,
+            toValue: 0.2,
             duration: 1000,
             useNativeDriver: true,
           }),
           Animated.timing(opacityAnim, {
-            toValue: 1,
-            duration: 1000,
-            useNativeDriver: true,
-          }),
-        ]),
-        Animated.sequence([
-          Animated.timing(scaleAnim, {
-            toValue: 0.9,
-            duration: 1000,
-            useNativeDriver: true,
-          }),
-          Animated.timing(scaleAnim, {
             toValue: 1,
             duration: 1000,
             useNativeDriver: true,
