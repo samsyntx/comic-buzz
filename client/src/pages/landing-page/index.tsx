@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import LogoSpinner from "src/components/logo-spinner";
 import { styles } from "./styles";
-import AppIntroPage from "../app-intro-page";
+import GetStartedPage from "../get-started";
 
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +20,7 @@ const LandingPage = () => {
       {isLoading ? (
         <LogoSpinner />
       ) : (
-        <AppIntroPage />
+        <GetStartedPage />
       )}
     </View>
   );

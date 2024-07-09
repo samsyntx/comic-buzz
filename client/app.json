@@ -7,7 +7,7 @@
     "icon": "./assets/images/comic-vine-logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/comic-vine-logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,8 +15,9 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.yourcompany.comicclient",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/comic-vine-logo.png",
         "backgroundColor": "#ffffff"
       }
     },
@@ -27,9 +28,16 @@
       [
         "expo-font",
         {
-          "fonts": ["src/assets/fonts/PlusJakartaSans-ExtraBold.ttf"]
+          "fonts": [
+            "src/assets/fonts/PlusJakartaSans-ExtraBold.ttf"
+          ]
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "73f5fda7-6bca-418f-a6ce-6f560af57bf5"
+      }
+    }
   }
 }
