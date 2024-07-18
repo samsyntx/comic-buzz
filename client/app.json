@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "comic-client",
-    "slug": "comic-client",
+    "name": "react-native-baiscs-poc",
+    "slug": "react-native-baiscs-poc",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/comic-vine-logo.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/comic-vine-logo.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,29 +16,21 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.yourcompany.comicclient",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/comic-vine-logo.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      [
-        "expo-font",
-        {
-          "fonts": [
-            "src/assets/fonts/PlusJakartaSans-ExtraBold.ttf"
-          ]
-        }
-      ]
+      "expo-router"
     ],
-    "extra": {
-      "eas": {
-        "projectId": "73f5fda7-6bca-418f-a6ce-6f560af57bf5"
-      }
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
