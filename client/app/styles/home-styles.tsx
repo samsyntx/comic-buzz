@@ -24,9 +24,9 @@ export const styles = StyleSheet.create({
     padding: 15,
   },
   homeNewCollectionName: {
-    fontFamily: "PlusJakartaSans-Regular",
+    fontFamily: "PlusJakartaSans-Medium",
     color: Colors.custom.white,
-    fontSize: 22,
+    fontSize: 18,
     marginVertical: 15,
   },
   ListItemsView: {
