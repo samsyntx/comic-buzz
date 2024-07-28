@@ -3,8 +3,9 @@ import { styles } from "../styles/home-styles";
 import { originals } from "../styles/original-styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomStatusBar from "@/components/CustomStatusBar";
-import DropComicItems from "../components/comic-items/DropComicItem";
+import DropComicItems from "../layouts/comic-items/DropComicItem";
 import { Ionicons } from "@expo/vector-icons";
+import GeresItems from "../layouts/geres-items";
 
 export default function OriginalScreen() {
   return (
@@ -74,6 +75,12 @@ export default function OriginalScreen() {
               </View>
             ))}
           </ScrollView>
+
+          <View style={originals.collectionContainer}>
+            <Text style={styles.homeNewCollectionName}>Favourite Geres</Text>
+          </View>
+
+          <GeresItems />
         </View>
       </ScrollView>
     </SafeAreaView>

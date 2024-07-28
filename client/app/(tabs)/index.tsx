@@ -3,9 +3,9 @@ import { styles } from "../styles/home-styles";
 import { common } from "@/constants/Styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomStatusBar from "@/components/CustomStatusBar";
-import SaveComicItem from "../components/comic-items/SaveComicItem";
+import SaveComicItem from "../layouts/comic-items/SaveComicItem";
 import { ThemedText } from "@/components/ThemedText";
-import DropComicItems from "../components/comic-items/DropComicItem";
+import DropComicItems from "../layouts/comic-items/DropComicItem";
 
 export default function HomeScreen() {
   return (
