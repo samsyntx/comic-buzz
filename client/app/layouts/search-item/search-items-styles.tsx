@@ -6,20 +6,26 @@ const windowWidth = Dimensions.get("window").width;
 export const searchItemStyle = StyleSheet.create({
   liItemContainer: {
     flexGrow: 1,
-    flexDirection: "column",
-    alignItems: "center",
+    flexDirection: "row",
     marginRight: 15,
-  },
-  iconContainer: {
-    height: 70,
-    width: 70,
-    borderRadius: 50,
-    backgroundColor: Colors.custom.secondaryBackground,
-    justifyContent: "center",
+    marginBottom: 15,
     alignItems: "center",
-    marginBottom: 10,
+  },
+  image: {
+    width: 104,
+    height: 150,
+    marginRight: 10,
+  },
+  textContainer: {
+    flex: 1,
   },
   title: {
     color: Colors.custom.white,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  author: {
+    color: Colors.custom.gray,
+    fontSize: 14,
   },
 });

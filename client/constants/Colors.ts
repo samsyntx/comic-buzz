@@ -27,7 +27,8 @@ export const Colors = {
     background: "#1B100E",
     secondaryBackground:"#222324",
     white: "#E5E5E5",
-    black:"#111"
+    black:"#111",
+    gray:"#6E6E70"
   },
   
 };
