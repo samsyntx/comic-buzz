@@ -13,13 +13,50 @@ import CustomStatusBar from "@/components/CustomStatusBar";
 import { Ionicons } from "@expo/vector-icons";
 import { NoUserImage } from "../assets/data";
 import { settingStyles } from "../styles/settings-styles";
+import HorizontalLine from "@/components/HorizontalLine";
+import {
+  HelpQuestionIcon,
+  LogoutIcon,
+  PencilIcon,
+  StarIcon,
+} from "@/app/assets/icons";
+import { Colors } from "@/constants/Colors";
+import { useRouter } from "expo-router";
+
+const settingsNavList = [
+  {
+    id: 0,
+    title: "Logout",
+    icon: <LogoutIcon />,
+  },
+  {
+    id: 1,
+    title: "Rate Us",
+    icon: <StarIcon />,
+  },
+  {
+    id: 2,
+    title: "Publish Your Original Comics",
+    icon: <PencilIcon />,
+  },
+  {
+    id: 3,
+    title: "Help Centre",
+    icon: <HelpQuestionIcon />,
+  },
+];
 
 export default function SettingsSecreen() {
+  const router = useRouter();
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <CustomStatusBar />
       <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 15 }}>
-        <Ionicons name="chevron-back-outline" color="#ffff" size={30} />
+        <TouchableOpacity onPress={() => router.back()}>
+          <Ionicons name="chevron-back-outline" color="#ffff" size={30} />
+        </TouchableOpacity>
+
         <View
           style={{
             flexDirection: "row",
@@ -42,10 +79,29 @@ export default function SettingsSecreen() {
               </Text>
             </View>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push('edit-profile')}>
             <Text style={settingStyles.profileEditButton}>Edit</Text>
           </TouchableOpacity>
         </View>
+
+        <HorizontalLine />
+
+        {settingsNavList.map((each, index) => (
+          <View key={index}>
+            <TouchableOpacity style={settingStyles.buttonTouchableContainer}>
+              <View style={settingStyles.IconTextContainer}>
+                {each.icon}
+                <Text style={settingStyles.menuItemsText}>{each.title}</Text>
+              </View>
+              <Ionicons
+                name="chevron-forward-outline"
+                color="#ffff"
+                size={25}
+              />
+            </TouchableOpacity>
+            <HorizontalLine />
+          </View>
+        ))}
       </ScrollView>
     </SafeAreaView>
   );

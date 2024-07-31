@@ -30,4 +30,32 @@ export const settingStyles = StyleSheet.create({
     fontFamily: "PlusJakartaSans-Bold",
     fontSize: 16,
   },
+  buttonTouchableContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 3,
+  },
+  IconTextContainer: {
+    flexDirection: "row",
+    marginVertical: 10,
+  },
+  menuItemsText: {
+    color: Colors.custom.white,
+    fontSize: 16,
+    marginLeft: 10,
+  },
+  editAccountHeading: {
+    color: Colors.custom.white,
+    fontSize: 24,
+    fontFamily: "PlusJakartaSans-Bold",
+    textAlign: "center",
+    marginVertical: 20,
+  },
+  editAccountSubHeading: {
+    color: Colors.custom.white,
+    marginBottom: 25,
+    fontSize: 18,
+    fontFamily: "PlusJakartaSans-Medium",
+  },
 });

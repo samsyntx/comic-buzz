@@ -56,12 +56,16 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={true ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(tabs)"
+          options={{ headerShown: false }}
+        ></Stack.Screen>
 
         <Stack.Screen
           name="pages/get-started"
           options={{ headerShown: false }}
         />
+
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>

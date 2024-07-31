@@ -12,6 +12,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
+        tabBarHideOnKeyboard: true,
       }}
     >
       <Tabs.Screen
@@ -57,6 +58,20 @@ export default function TabLayout() {
         name="settings"
         options={{
           title: "Settings",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              family="Ionicons"
+              name={focused ? "settings" : "settings-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="edit-profile"
+        options={{
+          title: "Edit Profile",
+          href: null,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               family="Ionicons"
