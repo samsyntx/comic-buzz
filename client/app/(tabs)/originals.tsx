@@ -16,7 +16,7 @@ export default function OriginalScreen() {
           <Image
             style={originals.mainImage}
             source={{
-              uri: "https://s3-alpha-sig.figma.com/img/4bee/2697/41b7207f5137c58524a419507d04ee81?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=L4P0W6JAnuuIs-OJlZb5hr-atnbFRNUrAq1P-nVzKNDwY8G7tvnd07Rp8ml-PSn~FKjKQB2Yy3ieYi6My0SmTr7qM1QGk9rfLx7WZ-tLMOfKknBr0jjGE-zruPtC6yqgJL1Cxmmuolw3LD3p3lsSvLwzApjs03M80N-BuDySdsFVkOUDhMiOroq5lURyQOpXDNnZo9VcTUtkNk0ZTSD5srTDHk3nJ8pNu91fuqhyzpem1Pbq3Rg7i16205BVLBnrEfWN0aoZ~IET1qmBkyPZ58T8TGv~qYEC-jk73n4VVqXIXGuSgoLEZbbcNVMw4YQ0CMKPKXqL7St85Vb9kORcdg__",
+              uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROTF7C30EDuDcTPqb3ZuxB5gnrNzaBWzIixA&s",
             }}
             resizeMode="stretch"
           />

@@ -20,34 +20,43 @@ import {
   PencilIcon,
   StarIcon,
 } from "@/app/assets/icons";
-import { Colors } from "@/constants/Colors";
 import { useRouter } from "expo-router";
-
-const settingsNavList = [
-  {
-    id: 0,
-    title: "Logout",
-    icon: <LogoutIcon />,
-  },
-  {
-    id: 1,
-    title: "Rate Us",
-    icon: <StarIcon />,
-  },
-  {
-    id: 2,
-    title: "Publish Your Original Comics",
-    icon: <PencilIcon />,
-  },
-  {
-    id: 3,
-    title: "Help Centre",
-    icon: <HelpQuestionIcon />,
-  },
-];
+import { useAuth } from "../context/AuthContext";
 
 export default function SettingsSecreen() {
   const router = useRouter();
+  const { logout } = useAuth();
+
+  const handleUserLogout = () => {
+    logout();
+  };
+
+  const settingsNavList = [
+    {
+      id: 0,
+      title: "Logout",
+      icon: <LogoutIcon />,
+      handleFun: handleUserLogout,
+    },
+    {
+      id: 1,
+      title: "Rate Us",
+      icon: <StarIcon />,
+      handleFun: handleUserLogout,
+    },
+    {
+      id: 2,
+      title: "Publish Your Original Comics",
+      icon: <PencilIcon />,
+      handleFun: handleUserLogout,
+    },
+    {
+      id: 3,
+      title: "Help Centre",
+      icon: <HelpQuestionIcon />,
+      handleFun: handleUserLogout,
+    },
+  ];
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -79,7 +88,7 @@ export default function SettingsSecreen() {
               </Text>
             </View>
           </View>
-          <TouchableOpacity onPress={() => router.push('edit-profile')}>
+          <TouchableOpacity onPress={() => router.push("edit-profile")}>
             <Text style={settingStyles.profileEditButton}>Edit</Text>
           </TouchableOpacity>
         </View>
@@ -88,7 +97,10 @@ export default function SettingsSecreen() {
 
         {settingsNavList.map((each, index) => (
           <View key={index}>
-            <TouchableOpacity style={settingStyles.buttonTouchableContainer}>
+            <TouchableOpacity
+              onPress={each.handleFun}
+              style={settingStyles.buttonTouchableContainer}
+            >
               <View style={settingStyles.IconTextContainer}>
                 {each.icon}
                 <Text style={settingStyles.menuItemsText}>{each.title}</Text>

@@ -7,17 +7,24 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import { useAuth } from "../context/AuthContext";
 import { styles } from "../styles/login-styles";
 import { common, button } from "@/constants/Styles";
+import GoogleLogin from "../layouts/social-login/GoogleLogin";
+import CustomStatusBar from "@/components/CustomStatusBar";
+import { useRouter } from "expo-router";
+
 const GetStartedPage = function () {
   const windowWidth = Dimensions.get("window").width;
+  const router = useRouter();
 
-  const handleClickGetStarted = () => {
-    console.log("Hello World!");
-  };
+  const handleClickEmailLogin = function(){
+    router.push('pages/email-login')
+  }
 
   return (
     <ScrollView>
+      <CustomStatusBar />
       <View
         style={[
           common.container,
@@ -48,18 +55,18 @@ const GetStartedPage = function () {
             Discover, Read, Review: Your Gateway to{" "}
             <Text style={styles.highlightText}>Comic Vine!</Text>
           </Text>
-          <TouchableOpacity
-            style={button.primaryButton}
-            onPress={handleClickGetStarted}
-          >
-            <Text style={button.primaryButtonText}>Get Started</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={button.secondaryButton}
-            onPress={handleClickGetStarted}
-          >
-            <Text style={button.secondaryButtonText}>Log in</Text>
-          </TouchableOpacity>
+
+          <GoogleLogin />
+
+          <View style={styles.emailLoginContainer}>
+            <Text style={styles.alreadyMemberText}>Already a member?</Text>
+            <TouchableOpacity
+              style={button.primaryButton}
+              onPress={handleClickEmailLogin}
+            >
+              <Text style={button.primaryButtonText}>Log in</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </ScrollView>

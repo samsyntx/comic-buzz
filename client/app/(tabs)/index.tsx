@@ -1,22 +1,22 @@
 import { Image, View, ScrollView, Text } from "react-native";
 import { styles } from "../styles/home-styles";
-import { common } from "@/constants/Styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomStatusBar from "@/components/CustomStatusBar";
 import SaveComicItem from "../layouts/comic-items/SaveComicItem";
-import { ThemedText } from "@/components/ThemedText";
 import DropComicItems from "../layouts/comic-items/DropComicItem";
+import AuthMiddleware from "../middleware/authMiddleware";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+   <AuthMiddleware>
+     <SafeAreaView style={{ flex: 1 }}>
       <CustomStatusBar />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.floatImageContainer}>
           <Image
             style={styles.coverImage}
             source={{
-              uri: "https://s3-alpha-sig.figma.com/img/1c5c/20d7/8f1aef2f7402d109ec895a86ebb85adb?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AB~ahrDMhSerPj7fOQWH2hATpg3dXGnO1ZatpyeNScgMfbOFrQotsyr8rW6u~sjzn-1rDHd93jVQPw93fEKFI0JYyIOE10pFCbyK799hmLGY6x6FdKd0XxGHQWHdxecP55dHOPAENbB~3sT9JP6y7cz9Okb42mF9CtlK4vf71CaN1qlxA0yzNDlPlspfd1Zp-gPxETudlpR0OdLI04Zx2Hu2O97xqvrLMjaW~kzbDo0wRz-aS2vkrHeqpdASA6G3cJPlWbNm2ztDqYJuFE3Ibza1ZMA2rozmIHXfTNfyQsMXcgFZoWRIajb3SwOvlC35piGExuIqaNaqaIsaNK-k8w__",
+              uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROTF7C30EDuDcTPqb3ZuxB5gnrNzaBWzIixA&s",
             }}
             resizeMode="cover"
           />
@@ -54,5 +54,6 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
     </SafeAreaView>
+   </AuthMiddleware>
   );
 }

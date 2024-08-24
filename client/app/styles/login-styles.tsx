@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   detailText: {
-    marginVertical:10,
+    marginVertical: 10,
     color: Colors.custom.white,
     fontSize: 22,
     textAlign: "center",
@@ -20,5 +20,12 @@ export const styles = StyleSheet.create({
   highlightText: {
     color: Colors.custom.primary,
     fontSize: 20,
+  },
+  emailLoginContainer: {
+    marginVertical: 10,
+  },
+  alreadyMemberText: {
+    color: Colors.custom.white,
+    textAlign: "center",
   },
 });
