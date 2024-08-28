@@ -10,6 +10,8 @@ import GeresItems from "../layouts/geres-items";
 import { searchStyles } from "../styles/search-styles";
 import { Ionicons } from "@expo/vector-icons";
 import SearchItem from "../layouts/search-item";
+import AuthMiddleware from "../middleware/authMiddleware";
+import AppStructure from "../middleware/Structure";
 
 const dummySearchList = [
   {
@@ -66,10 +68,9 @@ export default function SearchScreen() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <CustomStatusBar />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={searchStyles.searchInputContainer}>
+<AuthMiddleware>
+  <AppStructure>
+  <View style={searchStyles.searchInputContainer}>
           <Ionicons name="search-outline" size={20} color="white" />
           <TextInput
             style={{ flexGrow: 1, color: "#ffffff" }}
@@ -125,7 +126,7 @@ export default function SearchScreen() {
             )}
           </View>
         )}
-      </ScrollView>
-    </SafeAreaView>
+  </AppStructure>
+</AuthMiddleware>
   );
 }

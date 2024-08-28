@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
   },
   emailLoginContainer: {
     marginVertical: 10,
+    width:"100%"
   },
   alreadyMemberText: {
     color: Colors.custom.white,

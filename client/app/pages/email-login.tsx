@@ -87,6 +87,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: 5,
     marginVertical: 10,
+    height:50
   },
   forgetPasswordText: {
     color: Colors.custom.white,

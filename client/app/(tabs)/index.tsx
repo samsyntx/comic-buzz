@@ -1,17 +1,14 @@
 import { Image, View, ScrollView, Text } from "react-native";
 import { styles } from "../styles/home-styles";
-import { SafeAreaView } from "react-native-safe-area-context";
-import CustomStatusBar from "@/components/CustomStatusBar";
 import SaveComicItem from "../layouts/comic-items/SaveComicItem";
 import DropComicItems from "../layouts/comic-items/DropComicItem";
 import AuthMiddleware from "../middleware/authMiddleware";
+import AppStructure from "../middleware/Structure";
 
 export default function HomeScreen() {
   return (
-   <AuthMiddleware>
-     <SafeAreaView style={{ flex: 1 }}>
-      <CustomStatusBar />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+    <AuthMiddleware>
+      <AppStructure>
         <View style={styles.floatImageContainer}>
           <Image
             style={styles.coverImage}
@@ -52,8 +49,7 @@ export default function HomeScreen() {
             ))}
           </ScrollView>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-   </AuthMiddleware>
+      </AppStructure>
+    </AuthMiddleware>
   );
 }

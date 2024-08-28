@@ -22,6 +22,8 @@ import {
 } from "@/app/assets/icons";
 import { useRouter } from "expo-router";
 import { useAuth } from "../context/AuthContext";
+import AuthMiddleware from "../middleware/authMiddleware";
+import AppStructure from "../middleware/Structure";
 
 export default function SettingsSecreen() {
   const router = useRouter();
@@ -59,62 +61,63 @@ export default function SettingsSecreen() {
   ];
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <CustomStatusBar />
-      <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 15 }}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="chevron-back-outline" color="#ffff" size={30} />
-        </TouchableOpacity>
-
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <View style={settingStyles.profileContainer}>
-            <Image
-              source={{
-                uri: NoUserImage,
-              }}
-              resizeMode="stretch"
-              style={settingStyles.userImage}
-            />
-            <View>
-              <Text style={settingStyles.userNameText}>Punk Riot</Text>
-              <Text style={settingStyles.userEmailText}>
-                Punk fyt@gmail.com
-              </Text>
-            </View>
-          </View>
-          <TouchableOpacity onPress={() => router.push("edit-profile")}>
-            <Text style={settingStyles.profileEditButton}>Edit</Text>
+    <AuthMiddleware>
+      <AppStructure>
+        <View style={{padding:15}}>
+          <TouchableOpacity onPress={() => router.back()}>
+            <Ionicons name="chevron-back-outline" color="#ffff" size={30} />
           </TouchableOpacity>
-        </View>
 
-        <HorizontalLine />
-
-        {settingsNavList.map((each, index) => (
-          <View key={index}>
-            <TouchableOpacity
-              onPress={each.handleFun}
-              style={settingStyles.buttonTouchableContainer}
-            >
-              <View style={settingStyles.IconTextContainer}>
-                {each.icon}
-                <Text style={settingStyles.menuItemsText}>{each.title}</Text>
-              </View>
-              <Ionicons
-                name="chevron-forward-outline"
-                color="#ffff"
-                size={25}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <View style={settingStyles.profileContainer}>
+              <Image
+                source={{
+                  uri: NoUserImage,
+                }}
+                resizeMode="stretch"
+                style={settingStyles.userImage}
               />
+              <View>
+                <Text style={settingStyles.userNameText}>Punk Riot</Text>
+                <Text style={settingStyles.userEmailText}>
+                  Punk fyt@gmail.com
+                </Text>
+              </View>
+            </View>
+            <TouchableOpacity onPress={() => router.push("settings/edit-profile")}>
+              <Text style={settingStyles.profileEditButton}>Edit</Text>
             </TouchableOpacity>
-            <HorizontalLine />
           </View>
-        ))}
-      </ScrollView>
-    </SafeAreaView>
+
+          <HorizontalLine />
+
+          {settingsNavList.map((each, index) => (
+            <View key={index}>
+              <TouchableOpacity
+                onPress={each.handleFun}
+                style={settingStyles.buttonTouchableContainer}
+              >
+                <View style={settingStyles.IconTextContainer}>
+                  {each.icon}
+                  <Text style={settingStyles.menuItemsText}>{each.title}</Text>
+                </View>
+                <Ionicons
+                  name="chevron-forward-outline"
+                  color="#ffff"
+                  size={25}
+                />
+              </TouchableOpacity>
+              <HorizontalLine />
+            </View>
+          ))}
+        </View>
+      </AppStructure>
+    </AuthMiddleware>
   );
 }

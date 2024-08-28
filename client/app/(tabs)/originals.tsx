@@ -6,13 +6,14 @@ import CustomStatusBar from "@/components/CustomStatusBar";
 import DropComicItems from "../layouts/comic-items/DropComicItem";
 import { Ionicons } from "@expo/vector-icons";
 import GeresItems from "../layouts/geres-items";
+import AuthMiddleware from "../middleware/authMiddleware";
+import AppStructure from "../middleware/Structure";
 
 export default function OriginalScreen() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <CustomStatusBar />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={styles.collectionContainer}>
+    <AuthMiddleware>
+      <AppStructure>
+      <View style={styles.collectionContainer}>
           <Image
             style={originals.mainImage}
             source={{
@@ -82,7 +83,7 @@ export default function OriginalScreen() {
 
           <GeresItems />
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </AppStructure>
+    </AuthMiddleware>
   );
 }

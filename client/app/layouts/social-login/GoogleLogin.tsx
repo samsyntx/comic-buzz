@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     height: 45,
     marginVertical: 10,
+    width:"100%"
   },
   googleLogoImage: {
     height: 24,
