@@ -68,65 +68,71 @@ export default function SearchScreen() {
   };
 
   return (
-<AuthMiddleware>
-  <AppStructure>
-  <View style={searchStyles.searchInputContainer}>
-          <Ionicons name="search-outline" size={20} color="white" />
-          <TextInput
-            style={{ flexGrow: 1, color: "#ffffff" }}
-            placeholder="Find Your Comics"
-            placeholderTextColor="#999999"
-            onChangeText={handleChangeSearch}
-          />
-        </View>
-
-        {searchQuery === "" ? (
-          <View style={[styles.collectionContainer, { marginTop: 0 }]}>
-            <View style={originals.collectionContainer}>
-              <Text style={styles.homeNewCollectionName}>For You</Text>
-            </View>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              {[0, 1, 2, 3, 4, 5, 6, 7].map((each, index) => (
-                <View key={index} style={styles.ListItemsView}>
-                  <DropComicItems />
-                </View>
-              ))}
-            </ScrollView>
-
-            <View style={originals.collectionContainer}>
-              <Text style={styles.homeNewCollectionName}>Brand Spotlight</Text>
-            </View>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              {[0, 1, 2, 3, 4, 5, 6, 7].map((each, index) => (
-                <View key={index} style={styles.ListItemsView}>
-                  <BrandCollectionItem />
-                </View>
-              ))}
-            </ScrollView>
-
-            <View style={originals.collectionContainer}>
-              <Text style={styles.homeNewCollectionName}>Favourite Geres</Text>
-            </View>
-            <GeresItems />
+    <AuthMiddleware>
+      <AppStructure>
+        <ScrollView>
+          <View style={searchStyles.searchInputContainer}>
+            <Ionicons name="search-outline" size={20} color="white" />
+            <TextInput
+              style={{ flexGrow: 1, color: "#ffffff" }}
+              placeholder="Find Your Comics"
+              placeholderTextColor="#999999"
+              onChangeText={handleChangeSearch}
+            />
           </View>
-        ) : (
-          <View style={[styles.collectionContainer, { marginTop: 0 }]}>
-            {filteredResults.length > 0 ? (
-              filteredResults.map((each, index) => {
-                return <SearchItem key={index} detail={each} />;
-              })
-            ) : (
-              <Text style={{ color: "#ffff" }}>No Data Found</Text>
-            )}
-          </View>
-        )}
-  </AppStructure>
-</AuthMiddleware>
+
+          {searchQuery === "" ? (
+            <View style={[styles.collectionContainer, { marginTop: 0 }]}>
+              <View style={originals.collectionContainer}>
+                <Text style={styles.homeNewCollectionName}>For You</Text>
+              </View>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              >
+                {[0, 1, 2, 3, 4, 5, 6, 7].map((each, index) => (
+                  <View key={index} style={styles.ListItemsView}>
+                    <DropComicItems />
+                  </View>
+                ))}
+              </ScrollView>
+
+              <View style={originals.collectionContainer}>
+                <Text style={styles.homeNewCollectionName}>
+                  Brand Spotlight
+                </Text>
+              </View>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              >
+                {[0, 1, 2, 3, 4, 5, 6, 7].map((each, index) => (
+                  <View key={index} style={styles.ListItemsView}>
+                    <BrandCollectionItem />
+                  </View>
+                ))}
+              </ScrollView>
+
+              <View style={originals.collectionContainer}>
+                <Text style={styles.homeNewCollectionName}>
+                  Favourite Geres
+                </Text>
+              </View>
+              <GeresItems />
+            </View>
+          ) : (
+            <View style={[styles.collectionContainer, { marginTop: 0 }]}>
+              {filteredResults.length > 0 ? (
+                filteredResults.map((each, index) => {
+                  return <SearchItem key={index} detail={each} />;
+                })
+              ) : (
+                <Text style={{ color: "#ffff" }}>No Data Found</Text>
+              )}
+            </View>
+          )}
+        </ScrollView>
+      </AppStructure>
+    </AuthMiddleware>
   );
 }

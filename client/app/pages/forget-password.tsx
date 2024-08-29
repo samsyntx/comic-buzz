@@ -1,37 +1,29 @@
 import React from "react";
 import {
-  View,
-  Image,
-  Dimensions,
   Text,
   TouchableOpacity,
   ScrollView,
   StyleSheet,
   TextInput,
 } from "react-native";
-import { common, button } from "@/constants/Styles";
-import CustomStatusBar from "@/components/CustomStatusBar";
+import { button } from "@/constants/Styles";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import AppStructure from "../middleware/Structure";
 
-const EmailLogin = function () {
+const ForgetEmailPassword = function () {
   const router = useRouter();
 
   const handlePressGoBack = () => {
     router.back();
   };
 
-  const handleForgetPassword = () => {
-    router.push('pages/forget-password');
-  }
-
   return (
     <AppStructure>
       <ScrollView
         contentContainerStyle={{
-          paddingHorizontal: 15,
+          paddingHorizontal: 20,
         }}
       >
         <TouchableOpacity onPress={handlePressGoBack}>
@@ -42,36 +34,24 @@ const EmailLogin = function () {
           />
         </TouchableOpacity>
 
-        <Text style={styles.welcomeBackText}>Welcome Back</Text>
+        <Text style={styles.welcomeBackText}>Forget Password</Text>
 
         <TextInput
           style={styles.loginTextInput}
-          placeholder="Email"
+          placeholder="Enter your email"
           placeholderTextColor={"#fff"}
         />
-
-        <TextInput
-          style={styles.loginTextInput}
-          placeholder="Password"
-          placeholderTextColor={"#fff"}
-          secureTextEntry={true}
-        />
-
-        <TouchableOpacity onPress={handleForgetPassword}>
-        <Text style={styles.forgetPasswordText}>Forget Password ?</Text>
-        </TouchableOpacity>
 
         <TouchableOpacity style={button.primaryButton}>
-          <Text style={button.primaryButtonText}>Login</Text>
+          <Text style={button.primaryButtonText}>Send Login Link</Text>
         </TouchableOpacity>
       </ScrollView>
     </AppStructure>
   );
 };
 
-export default EmailLogin;
+export default ForgetEmailPassword;
 
-const windowWidth = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
   welcomeBackText: {
@@ -95,7 +75,5 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     marginHorizontal: 10,
-    marginTop:10,
-    marginBottom:5
   },
 });

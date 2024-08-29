@@ -6,7 +6,7 @@ const windowWidth = Dimensions.get("window").width;
 export const styles = StyleSheet.create({
   image: {
     height: 200,
-    width: windowWidth - 40,
+    width: "100%",
     resizeMode: "contain",
   },
   detailText: {

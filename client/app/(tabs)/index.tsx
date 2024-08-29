@@ -9,6 +9,7 @@ export default function HomeScreen() {
   return (
     <AuthMiddleware>
       <AppStructure>
+        <ScrollView>
         <View style={styles.floatImageContainer}>
           <Image
             style={styles.coverImage}
@@ -49,6 +50,7 @@ export default function HomeScreen() {
             ))}
           </ScrollView>
         </View>
+        </ScrollView>
       </AppStructure>
     </AuthMiddleware>
   );

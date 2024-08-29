@@ -45,7 +45,7 @@ export default function EditProfilePage() {
   return (
     <AuthMiddleware>
       <AppStructure>
-        <View style={{ padding: 15 }}>
+        <ScrollView contentContainerStyle={{ padding: 15 }}>
           <TouchableOpacity onPress={() => router.push("settings")}>
             <Ionicons name="chevron-back-outline" color="#ffff" size={30} />
           </TouchableOpacity>
@@ -77,7 +77,7 @@ export default function EditProfilePage() {
               <HorizontalLine />
             </View>
           ))}
-        </View>
+        </ScrollView>
       </AppStructure>
     </AuthMiddleware>
   );

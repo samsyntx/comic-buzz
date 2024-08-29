@@ -34,15 +34,6 @@ export default function RootLayout() {
     "PlusJakartaSans-SemiBoldItalic": require("../assets/fonts/PlusJakartaSans-SemiBoldItalic.ttf"),
   });
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const checkLoginStatus = async () => {
-      setIsLoggedIn(false);
-    };
-
-    // checkLoginStatus();
-  }, []);
 
   useEffect(() => {
     if (loaded) {
@@ -65,6 +56,7 @@ export default function RootLayout() {
 
           <Stack.Screen name="pages/login" options={{ headerShown: false }} />
           <Stack.Screen name="pages/email-login" options={{ headerShown: false }} />
+          <Stack.Screen name="pages/forget-password" options={{ headerShown: false }} />
 
           <Stack.Screen name="+not-found" />
         </Stack>

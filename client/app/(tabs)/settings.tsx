@@ -35,12 +35,6 @@ export default function SettingsSecreen() {
 
   const settingsNavList = [
     {
-      id: 0,
-      title: "Logout",
-      icon: <LogoutIcon />,
-      handleFun: handleUserLogout,
-    },
-    {
       id: 1,
       title: "Rate Us",
       icon: <StarIcon />,
@@ -58,12 +52,18 @@ export default function SettingsSecreen() {
       icon: <HelpQuestionIcon />,
       handleFun: handleUserLogout,
     },
+    {
+      id: 0,
+      title: "Logout",
+      icon: <LogoutIcon />,
+      handleFun: handleUserLogout,
+    },
   ];
 
   return (
     <AuthMiddleware>
       <AppStructure>
-        <View style={{padding:15}}>
+        <ScrollView contentContainerStyle={{ padding: 15 }}>
           <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name="chevron-back-outline" color="#ffff" size={30} />
           </TouchableOpacity>
@@ -90,7 +90,9 @@ export default function SettingsSecreen() {
                 </Text>
               </View>
             </View>
-            <TouchableOpacity onPress={() => router.push("settings/edit-profile")}>
+            <TouchableOpacity
+              onPress={() => router.push("settings/edit-profile")}
+            >
               <Text style={settingStyles.profileEditButton}>Edit</Text>
             </TouchableOpacity>
           </View>
@@ -116,7 +118,7 @@ export default function SettingsSecreen() {
               <HorizontalLine />
             </View>
           ))}
-        </View>
+        </ScrollView>
       </AppStructure>
     </AuthMiddleware>
   );

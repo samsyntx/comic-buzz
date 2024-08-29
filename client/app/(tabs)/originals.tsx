@@ -13,7 +13,7 @@ export default function OriginalScreen() {
   return (
     <AuthMiddleware>
       <AppStructure>
-      <View style={styles.collectionContainer}>
+        <ScrollView contentContainerStyle={styles.collectionContainer}>
           <Image
             style={originals.mainImage}
             source={{
@@ -82,7 +82,7 @@ export default function OriginalScreen() {
           </View>
 
           <GeresItems />
-        </View>
+        </ScrollView>
       </AppStructure>
     </AuthMiddleware>
   );
