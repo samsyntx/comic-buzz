@@ -29,4 +29,20 @@ export const styles = StyleSheet.create({
     color: Colors.custom.white,
     textAlign: "center",
   },
+  sheetViewContainer:{
+    padding:15
+  },
+  sheetTextHeading:{
+    color:Colors.custom.white,
+    fontSize:22,
+    textAlign:'center',
+    fontFamily:'PlusJakartaSans-ExtraBold',
+    marginBottom:18,
+  },
+  sheetSepratorText:{
+    color:Colors.custom.white,
+    fontSize:15,
+    textAlign:'center',
+    marginVertical:12
+  }
 });

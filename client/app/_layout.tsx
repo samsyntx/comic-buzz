@@ -54,7 +54,7 @@ export default function RootLayout() {
             options={{ headerShown: false }}
           ></Stack.Screen>
 
-          <Stack.Screen name="pages/login" options={{ headerShown: false }} />
+          <Stack.Screen name="pages/get-started" options={{ headerShown: false }} />
           <Stack.Screen name="pages/email-login" options={{ headerShown: false }} />
           <Stack.Screen name="pages/forget-password" options={{ headerShown: false }} />
 

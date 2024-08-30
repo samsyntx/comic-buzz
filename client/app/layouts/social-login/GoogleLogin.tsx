@@ -1,9 +1,13 @@
-import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import googleLogo from "@/assets/images/google-logo.png";
 import { Colors } from "@/constants/Colors";
 import { useAuth } from "@/app/context/AuthContext";
 
-const GoogleLogin = function () {
+interface propsTypes {
+  usedFor?: string;
+}
+
+const GoogleLogin = function (props: propsTypes) {
   const { login } = useAuth();
 
   const handleClickLogin = () => {
@@ -11,13 +15,13 @@ const GoogleLogin = function () {
   };
 
   return (
-    <TouchableOpacity style={styles.btnBackground} onPress={handleClickLogin}>
+    <TouchableOpacity onPress={handleClickLogin} style={styles.btnBackground}>
       <Image
         source={googleLogo}
         resizeMode="stretch"
         style={styles.googleLogoImage}
       />
-      <Text style={styles.googleText}>Continue With Google</Text>
+      <Text style={styles.googleText}>{props.usedFor === "signup" ? "Sign up with Google" : "Continue With Google"}</Text>
     </TouchableOpacity>
   );
 };
@@ -32,7 +36,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     height: 45,
     marginVertical: 10,
-    width:"100%"
+    width: "100%",
   },
   googleLogoImage: {
     height: 24,

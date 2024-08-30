@@ -21,7 +21,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const logout = () => {
     setIsAuthenticated(false);
-    router.push('/pages/login'); 
+    router.push('/pages/get-started'); 
   };
 
   return (

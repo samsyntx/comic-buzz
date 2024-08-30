@@ -6,7 +6,7 @@ const AuthMiddleware: React.FC<{ children: React.ReactNode }> = ({ children }) =
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
-    return <Redirect href="pages/login" />;
+    return <Redirect href="pages/get-started" />;
   }
 
   return <>{children}</>;
