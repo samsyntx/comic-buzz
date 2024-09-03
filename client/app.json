@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Comic Buzz",
-    "slug": "Comic Buzz",
+    "slug": "comic-buzz",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#1B100E"
-      }
+      },
+      "package": "com.samsyntx.comicbuzz"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +32,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "748ad862-5aaf-4ac4-af3c-693a0b81c00e"
+      }
     }
   }
 }
