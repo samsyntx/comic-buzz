@@ -24,11 +24,11 @@ const GetStartedPage = function () {
   }
 
   const handleClickEmailLogin = function () {
-    router.push("pages/email-login");
+    router.push("pages/login/email-login");
   };
 
   const handleClickEmailSignUp = () => {
-    router.push("pages/email-login");
+    router.push("pages/signup/signup-email");
   }
 
   return (
@@ -63,7 +63,7 @@ const GetStartedPage = function () {
             style={[button.secondaryButton, { width: "100%" }]}
             onPress={handleGoogleSignUpPress}
           >
-            <Text style={button.secondaryButtonText}>Sign Up</Text>
+            <Text style={button.secondaryButtonText}>Get Started</Text>
           </TouchableOpacity>
 
           <View style={styles.emailLoginContainer}>

@@ -10,11 +10,10 @@ import {
   TextInput,
 } from "react-native";
 import { common, button } from "@/constants/Styles";
-import CustomStatusBar from "@/components/CustomStatusBar";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
-import AppStructure from "../middleware/Structure";
+import AppStructure from "@/app/middleware/Structure";
 
 const EmailLogin = function () {
   const router = useRouter();
@@ -24,7 +23,7 @@ const EmailLogin = function () {
   };
 
   const handleForgetPassword = () => {
-    router.push('pages/forget-password');
+    router.push('pages/login/forget-password');
   }
 
   return (

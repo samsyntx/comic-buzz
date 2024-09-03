@@ -15,6 +15,7 @@ export const button = StyleSheet.create({
   },
   primaryButtonText: {
     color: Colors.custom.white,
+    fontSize: 16,
   },
   secondaryButton: {
     borderRadius: 8,
@@ -27,6 +28,7 @@ export const button = StyleSheet.create({
   },
   secondaryButtonText: {
     color: Colors.custom.black,
+    fontSize: 16,
   },
 });
 
@@ -34,6 +36,6 @@ export const common = StyleSheet.create({
   container: {
     flex: 1,
     width: windowWidth,
-    backgroundColor:Colors.custom.background
-  }
+    backgroundColor: Colors.custom.background,
+  },
 });

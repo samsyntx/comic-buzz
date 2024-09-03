@@ -6,24 +6,28 @@ import {
   StyleSheet,
   TextInput,
 } from "react-native";
-import { button } from "@/constants/Styles";
+import { common, button } from "@/constants/Styles";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
-import AppStructure from "../middleware/Structure";
+import AppStructure from "@/app/middleware/Structure";
 
-const ForgetEmailPassword = function () {
+const SignupEmail = function () {
   const router = useRouter();
 
   const handlePressGoBack = () => {
     router.back();
   };
 
+  const handleCreatePassword = () => {
+    router.push('pages/signup/create-password');
+  }
+
   return (
     <AppStructure>
       <ScrollView
         contentContainerStyle={{
-          paddingHorizontal: 20,
+          paddingHorizontal: 15,
         }}
       >
         <TouchableOpacity onPress={handlePressGoBack}>
@@ -34,24 +38,23 @@ const ForgetEmailPassword = function () {
           />
         </TouchableOpacity>
 
-        <Text style={styles.welcomeBackText}>Forget Password</Text>
+        <Text style={styles.welcomeBackText}>What’s your Email?</Text>
 
         <TextInput
           style={styles.loginTextInput}
-          placeholder="Enter your email"
+          placeholder="Email"
           placeholderTextColor={"#fff"}
         />
 
-        <TouchableOpacity style={button.primaryButton}>
-          <Text style={button.primaryButtonText}>Send Login Link</Text>
+        <TouchableOpacity onPress={handleCreatePassword} style={button.primaryButton}>
+          <Text style={button.primaryButtonText}>Next</Text>
         </TouchableOpacity>
       </ScrollView>
     </AppStructure>
   );
 };
 
-export default ForgetEmailPassword;
-
+export default SignupEmail;
 
 export const styles = StyleSheet.create({
   welcomeBackText: {
@@ -75,5 +78,7 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     marginHorizontal: 10,
+    marginTop:10,
+    marginBottom:5
   },
 });
