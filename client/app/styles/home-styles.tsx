@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { Colors } from "@/constants/Colors";
+import { scaleSize } from "../utils/scale-size";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -9,8 +10,9 @@ export const styles = StyleSheet.create({
     borderColor: "red",
   },
   floatImageContainer: {
-    height: 240,
+    height: scaleSize(240),
     position: "relative",
+    marginBottom:scaleSize(24)
   },
   container: {
     backgroundColor: Colors.custom.background,
@@ -18,18 +20,15 @@ export const styles = StyleSheet.create({
   },
   coverImage: {
     width: windowWidth,
-    height: 184,
+    height: scaleSize(184),
   },
   collectionContainer: {
-    padding: 15,
+    padding: scaleSize(15),
   },
   homeNewCollectionName: {
     fontFamily: "PlusJakartaSans-Medium",
     color: Colors.custom.white,
-    fontSize: 18,
-    marginVertical: 15,
-  },
-  ListItemsView: {
-    marginHorizontal: 5,
+    fontSize: scaleSize(16),
+    marginBottom: scaleSize(16),
   },
 });

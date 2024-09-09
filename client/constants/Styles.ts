@@ -16,6 +16,7 @@ export const button = StyleSheet.create({
   primaryButtonText: {
     color: Colors.custom.white,
     fontSize: scaleSize(14),
+    fontFamily:"DMSans-500"
   },
   secondaryButton: {
     borderRadius: scaleSize(8),
@@ -28,6 +29,7 @@ export const button = StyleSheet.create({
   secondaryButtonText: {
     color: Colors.custom.black,
     fontSize: scaleSize(14),
+    fontFamily:"DMSans-500"
   },
 });
 

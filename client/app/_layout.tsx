@@ -18,22 +18,16 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    "PlusJakartaSans-Bold": require("../assets/fonts/PlusJakartaSans-Bold.ttf"),
-    "PlusJakartaSans-BoldItalic": require("../assets/fonts/PlusJakartaSans-BoldItalic.ttf"),
-    "PlusJakartaSans-ExtraBold": require("../assets/fonts/PlusJakartaSans-ExtraBold.ttf"),
-    "PlusJakartaSans-ExtraBoldItalic": require("../assets/fonts/PlusJakartaSans-ExtraBoldItalic.ttf"),
-    "PlusJakartaSans-ExtraLight": require("../assets/fonts/PlusJakartaSans-ExtraLight.ttf"),
-    "PlusJakartaSans-ExtraLightItalic": require("../assets/fonts/PlusJakartaSans-ExtraLightItalic.ttf"),
-    "PlusJakartaSans-Italic": require("../assets/fonts/PlusJakartaSans-Italic.ttf"),
-    "PlusJakartaSans-Light": require("../assets/fonts/PlusJakartaSans-Light.ttf"),
-    "PlusJakartaSans-LightItalic": require("../assets/fonts/PlusJakartaSans-LightItalic.ttf"),
-    "PlusJakartaSans-Medium": require("../assets/fonts/PlusJakartaSans-Medium.ttf"),
-    "PlusJakartaSans-MediumItalic": require("../assets/fonts/PlusJakartaSans-MediumItalic.ttf"),
-    "PlusJakartaSans-Regular": require("../assets/fonts/PlusJakartaSans-Regular.ttf"),
-    "PlusJakartaSans-SemiBold": require("../assets/fonts/PlusJakartaSans-SemiBold.ttf"),
-    "PlusJakartaSans-SemiBoldItalic": require("../assets/fonts/PlusJakartaSans-SemiBoldItalic.ttf"),
+    "PlusJakartaSans-400": require("../assets/fonts/PlusJakartaSans-Regular.ttf"),
+    "PlusJakartaSans-500": require("../assets/fonts/PlusJakartaSans-Medium.ttf"),
+    "PlusJakartaSans-700": require("../assets/fonts/PlusJakartaSans-Bold.ttf"),
+    "PlusJakartaSans-600": require("../assets/fonts/PlusJakartaSans-SemiBold.ttf"),
+    //DM Sans Family
+    "DMSans-400": require("../assets/fonts/DMSans-Regular.ttf"),
+    "DMSans-500": require("../assets/fonts/DMSans-Medium.ttf"),
+    "DMSans-600": require("../assets/fonts/DMSans-SemiBold.ttf"),
+    "DMSans-700": require("../assets/fonts/DMSans-Bold.ttf"),
   });
-
 
   useEffect(() => {
     if (loaded) {
@@ -54,11 +48,26 @@ export default function RootLayout() {
             options={{ headerShown: false }}
           ></Stack.Screen>
 
-          <Stack.Screen name="pages/get-started" options={{ headerShown: false }} />
-          <Stack.Screen name="pages/login/email-login" options={{ headerShown: false }} />
-          <Stack.Screen name="pages/login/forget-password" options={{ headerShown: false }} />
-          <Stack.Screen name="pages/signup/signup-email" options={{ headerShown: false }} />
-          <Stack.Screen name="pages/signup/create-password" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="pages/get-started"
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="pages/login/email-login"
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="pages/login/forget-password"
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="pages/signup/signup-email"
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="pages/signup/create-password"
+            options={{ headerShown: false }}
+          />
 
           <Stack.Screen name="+not-found" />
         </Stack>

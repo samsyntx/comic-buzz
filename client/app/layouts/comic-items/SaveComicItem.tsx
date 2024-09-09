@@ -1,36 +1,39 @@
 import React from "react";
 import { Image, View, TouchableOpacity, Text } from "react-native";
 import { styles } from "./save-comic-styles";
-import { SaveSvgIcon } from "@/app/assets/icons";
+import { SaveSvgIcon } from "@/assets/icons";
 import { Ionicons } from "@expo/vector-icons";
+import { scaleSize } from "@/app/utils/scale-size";
 
 interface PropsType {
-  isFloat?: boolean;
+  detail: {
+    id: number;
+    title: string;
+    thumbnail: string;
+  };
 }
 
 const SaveComic: React.FC<PropsType> = (props: PropsType): JSX.Element => {
+  const { title, thumbnail } = props.detail;
+
   return (
-    <View style={props.isFloat ? styles.container : styles.normalContainer}>
+    <View style={styles.normalContainer}>
       <Image
         source={{
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUiY-7u1EkHwfhw2g_j5BZwTUb5EELBlVmfQ&s",
+          uri: thumbnail,
         }}
         style={styles.comicImage}
       />
-      <TouchableOpacity
-        style={props.isFloat ? styles.saveButton : styles.normalSaveButton}
-      >
-        <SaveSvgIcon />
+      <TouchableOpacity style={styles.normalSaveButton}>
+        <SaveSvgIcon
+          height={scaleSize(48).toString()}
+          width={scaleSize(40).toString()}
+        />
         <View style={styles.plusIconForSaveButton}>
-          <Ionicons name="add-outline" size={30} color="white" />
+          <Ionicons name="add-outline" size={scaleSize(30)} color="white" />
         </View>
       </TouchableOpacity>
-      {!props.isFloat && <Text style={styles.bookTitle}>Hello World</Text>}
-      {props.isFloat && (
-        <Text style={styles.bookSideTitle}>
-          The Story – Unstoppable Doom Patrol (2024) #1
-        </Text>
-      )}
+      <Text style={styles.bookTitle}>{title}</Text>
     </View>
   );
 };

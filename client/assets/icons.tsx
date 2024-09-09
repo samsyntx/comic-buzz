@@ -1,15 +1,38 @@
 import React from "react";
 import { Svg, Path } from "react-native-svg";
 
+interface propTypes {
+  height?: string;
+  width?: string;
+  color?: string;
+}
 
-
-export const SaveSvgIcon = () => {
+export const HomeSvgIcon = ({
+  height = "21",
+  width = "21",
+  color = "#FA4259",
+}: propTypes) => {
   return (
-    <Svg width="40" height="48" viewBox="0 0 40 48" fill="none">
+    <Svg width="21" height="21" viewBox="0 0 21 21" fill="none">
+      <Path
+        d="M20.5 10.0996V19.7C20.5 19.9122 20.4122 20.1156 20.2559 20.2657C20.0996 20.4157 19.8877 20.5 19.6667 20.5H13.8333C13.6123 20.5 13.4004 20.4157 13.2441 20.2657C13.0878 20.1156 13 19.9122 13 19.7V14.4998C13 14.3937 12.9561 14.2919 12.878 14.2169C12.7998 14.1419 12.6938 14.0998 12.5833 14.0998H8.41667C8.30616 14.0998 8.20018 14.1419 8.12204 14.2169C8.0439 14.2919 8 14.3937 8 14.4998V19.7C8 19.9122 7.9122 20.1156 7.75592 20.2657C7.59964 20.4157 7.38768 20.5 7.16667 20.5H1.33333C1.11232 20.5 0.900358 20.4157 0.744078 20.2657C0.587798 20.1156 0.5 19.9122 0.5 19.7V10.0996C0.500205 9.67533 0.675934 9.26849 0.988542 8.96857L9.32187 0.968276C9.6344 0.668433 10.0582 0.5 10.5 0.5C10.9418 0.5 11.3656 0.668433 11.6781 0.968276L20.0115 8.96857C20.3241 9.26849 20.4998 9.67533 20.5 10.0996Z"
+        fill={color}
+      />
+    </Svg>
+  );
+};
+
+export const SaveSvgIcon = ({
+  height = "48",
+  width = "40",
+  color = "rgba(91, 97, 103, 0.80);",
+}: propTypes) => {
+  return (
+    <Svg width={width} height={height} viewBox={`0 0 40 48`} fill="none">
       <Path
         d="M0 0H40V48L21.2 30.1277L0 48V0Z"
-        fill="#5b6167c3"
-        fill-opacity="0.8"
+        fill={color}
+        fillOpacity={0.8}
       />
     </Svg>
   );

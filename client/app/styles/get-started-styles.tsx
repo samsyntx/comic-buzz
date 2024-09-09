@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     color: Colors.custom.white,
     fontSize: scaleSize(20),
     textAlign: "center",
-    fontFamily: "PlusJakartaSans-ExtraBold",
+    fontFamily: "PlusJakartaSans-700",
   },
   highlightText: {
     color: Colors.custom.primary,
@@ -24,7 +24,8 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     fontSize:scaleSize(14),
     marginTop:scaleSize(24),
-    marginBottom:scaleSize(8)
+    marginBottom:scaleSize(8),
+    fontFamily:'PlusJakrataSans-'
   },
   sheetViewContainer:{
     paddingHorizontal:scaleSize(16),
@@ -34,8 +35,8 @@ export const styles = StyleSheet.create({
     color:Colors.custom.white,
     fontSize:scaleSize(22),
     textAlign:'center',
-    fontFamily:'PlusJakartaSans-ExtraBold',
-    marginBottom:scaleSize(18),
+    fontFamily:'PlusJakartaSans-700',
+    marginBottom:scaleSize(40),
   },
   sheetSepratorText:{
     color:Colors.custom.white,

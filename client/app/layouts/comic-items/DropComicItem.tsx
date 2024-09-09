@@ -1,20 +1,30 @@
 import React from "react";
 import { Image, View, TouchableOpacity, Text } from "react-native";
-import { styles } from "./save-comic-styles";
-import { SaveSvgIcon } from "@/app/assets/icons";
-import { Ionicons } from "@expo/vector-icons";
+import { scaleSize } from "@/app/utils/scale-size";
+import { NoComicImage } from "@/assets/data";
 
-const DropComicItems: React.FC = (): JSX.Element => {
+interface propTypes {
+  detail: {
+    title?: string;
+    id?: number;
+    thumbnail?: string;
+  };
+}
+
+const DropComicItems = ({ detail }: propTypes): JSX.Element => {
   return (
     <View style={{ alignItems: "center" }}>
       <Image
         source={{
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUiY-7u1EkHwfhw2g_j5BZwTUb5EELBlVmfQ&s",
+          uri: detail?.thumbnail || NoComicImage,
         }}
-        style={{ height: 124, width: 104 }}
+        style={{
+          height: scaleSize(198),
+          width: scaleSize(118),
+          overflow: "hidden",
+          borderRadius: scaleSize(4),
+        }}
       />
-
-      <Text style={styles.bookTitle}>Hello World</Text>
     </View>
   );
 };

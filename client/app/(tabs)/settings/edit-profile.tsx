@@ -10,7 +10,7 @@ import {
   LogoutIcon,
   PencilIcon,
   StarIcon,
-} from "@/app/assets/icons";
+} from "@/assets/icons";
 import { Colors } from "@/constants/Colors";
 import { useRouter } from "expo-router";
 import AuthMiddleware from "@/app/middleware/authMiddleware";

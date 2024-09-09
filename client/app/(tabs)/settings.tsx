@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomStatusBar from "@/components/CustomStatusBar";
 import { Ionicons } from "@expo/vector-icons";
-import { NoUserImage } from "../assets/data";
+import { NoUserImage } from "../../assets/data";
 import { settingStyles } from "../styles/settings-styles";
 import HorizontalLine from "@/components/HorizontalLine";
 import {
@@ -19,7 +19,7 @@ import {
   LogoutIcon,
   PencilIcon,
   StarIcon,
-} from "@/app/assets/icons";
+} from "@/assets/icons";
 import { useRouter } from "expo-router";
 import { useAuth } from "../context/AuthContext";
 import AuthMiddleware from "../middleware/authMiddleware";

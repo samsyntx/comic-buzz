@@ -4,7 +4,7 @@ import {
   DramaIcon,
   ScriptedIcon,
   SportsIcon,
-} from "@/app/assets/icons";
+} from "@/assets/icons";
 import { geresStyle } from "./geres-styles";
 
 const geresList = [
