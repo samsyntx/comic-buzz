@@ -11,6 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import AppStructure from "@/app/middleware/Structure";
+import { scaleSize } from "@/app/utils/scale-size";
 
 const SignupEmail = function () {
   const router = useRouter();
@@ -20,33 +21,37 @@ const SignupEmail = function () {
   };
 
   const handleCreatePassword = () => {
-    router.push('pages/signup/create-password');
-  }
+    router.push("/pages/signup/create-password");
+  };
 
   return (
     <AppStructure>
       <ScrollView
         contentContainerStyle={{
-          paddingHorizontal: 15,
+          paddingHorizontal: scaleSize(15),
+          marginTop: scaleSize(35),
         }}
       >
         <TouchableOpacity onPress={handlePressGoBack}>
           <Ionicons
             name="arrow-back-outline"
-            size={30}
-            style={{ color: "#fff" }}
+            size={scaleSize(30)}
+            style={registerStyles.backIcon}
           />
         </TouchableOpacity>
 
-        <Text style={styles.welcomeBackText}>What’s your Email?</Text>
+        <Text style={registerStyles.welcomeBackText}>What’s your Email?</Text>
 
         <TextInput
-          style={styles.loginTextInput}
+          style={registerStyles.loginTextInput}
           placeholder="Email"
           placeholderTextColor={"#fff"}
         />
 
-        <TouchableOpacity onPress={handleCreatePassword} style={button.primaryButton}>
+        <TouchableOpacity
+          onPress={handleCreatePassword}
+          style={button.primaryButton}
+        >
           <Text style={button.primaryButtonText}>Next</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -56,29 +61,23 @@ const SignupEmail = function () {
 
 export default SignupEmail;
 
-export const styles = StyleSheet.create({
+export const registerStyles = StyleSheet.create({
+  backIcon: { color: "#fff", marginBottom: scaleSize(20) },
   welcomeBackText: {
     color: Colors.custom.white,
-    fontSize: 24,
-    fontFamily: "PlusJakartaSans-Bold",
+    fontSize: scaleSize(24),
+    fontFamily: "PlusJakartaSans",
+    fontWeight: "600",
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: scaleSize(24),
   },
   loginTextInput: {
     backgroundColor: "#4F4F4F",
     color: Colors.custom.white,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 5,
-    marginVertical: 10,
-    height: 50,
-  },
-  forgetPasswordText: {
-    color: Colors.custom.white,
-    textAlign: "center",
-    fontSize: 15,
-    marginHorizontal: 10,
-    marginTop:10,
-    marginBottom:5
+    padding: scaleSize(10),
+    borderRadius: scaleSize(4),
+    height: scaleSize(40),
+    marginBottom: scaleSize(44),
+    fontSize: scaleSize(14),
   },
 });

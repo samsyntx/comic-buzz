@@ -13,7 +13,7 @@ interface PropsType {
   };
 }
 
-const SaveComic: React.FC<PropsType> = (props: PropsType): JSX.Element => {
+const SaveComicItem: React.FC<PropsType> = (props: PropsType): JSX.Element => {
   const { title, thumbnail } = props.detail;
 
   return (
@@ -38,4 +38,4 @@ const SaveComic: React.FC<PropsType> = (props: PropsType): JSX.Element => {
   );
 };
 
-export default SaveComic;
+export default SaveComicItem;

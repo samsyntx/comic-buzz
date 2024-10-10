@@ -6,6 +6,7 @@ import AuthMiddleware from "../middleware/authMiddleware";
 import AppStructure from "../middleware/Structure";
 import FeaturedComicItem from "../layouts/comic-items/FeaturedComicItem";
 import { scaleSize } from "../utils/scale-size";
+import Slider from "@/components/SnapSlider";
 
 const featuredComicList = [
   {
@@ -91,20 +92,35 @@ const saveComicList = [
 ];
 
 export default function HomeScreen() {
+  const formattedFeaturedComicList = featuredComicList.map((item, index) => ({
+    id: index,
+    title: item.name,
+    thumbnail: item.cover,
+  }));
+
+  const renderItem = (
+    item: { id: number; title: string; thumbnail: string },
+    index: number
+  ) => {
+    return (
+      <View style={styles.floatImageContainer}>
+        <Image
+          style={styles.coverImage}
+          source={{
+            uri: item.thumbnail,
+          }}
+          resizeMode="cover"
+        />
+        <FeaturedComicItem detail={featuredComicList[0]} />
+      </View>
+    );
+  };
+
   return (
     <AuthMiddleware>
       <AppStructure>
         <ScrollView>
-          <View style={styles.floatImageContainer}>
-            <Image
-              style={styles.coverImage}
-              source={{
-                uri: "https://res.cloudinary.com/dqmmxqwiq/image/upload/v1725868314/comic-vine/Rectangle_32_1__11zon_c6kzkk.png",
-              }}
-              resizeMode="cover"
-            />
-            <FeaturedComicItem detail={featuredComicList[0]} />
-          </View>
+          <Slider itemsData={formattedFeaturedComicList} renderItem={renderItem} />
 
           <View style={styles.collectionContainer}>
             <Text style={styles.homeNewCollectionName}>Latest Drops</Text>

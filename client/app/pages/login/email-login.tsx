@@ -14,6 +14,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import AppStructure from "@/app/middleware/Structure";
+import { scaleSize } from "@/app/utils/scale-size";
+import { registerStyles } from "../signup/signup-email";
 
 const EmailLogin = function () {
   const router = useRouter();
@@ -23,41 +25,45 @@ const EmailLogin = function () {
   };
 
   const handleForgetPassword = () => {
-    router.push('pages/login/forget-password');
-  }
+    router.push("/pages/login/forget-password");
+  };
 
   return (
     <AppStructure>
       <ScrollView
         contentContainerStyle={{
-          paddingHorizontal: 15,
+          paddingHorizontal: scaleSize(15),
+          marginTop: scaleSize(35),
         }}
       >
         <TouchableOpacity onPress={handlePressGoBack}>
           <Ionicons
             name="arrow-back-outline"
-            size={30}
-            style={{ color: "#fff" }}
+            size={scaleSize(30)}
+            style={registerStyles.backIcon}
           />
         </TouchableOpacity>
 
-        <Text style={styles.welcomeBackText}>Welcome Back</Text>
+        <Text style={registerStyles.welcomeBackText}>Welcome Back</Text>
 
         <TextInput
-          style={styles.loginTextInput}
+          style={[
+            registerStyles.loginTextInput,
+            { marginBottom: scaleSize(12) },
+          ]}
           placeholder="Email"
           placeholderTextColor={"#fff"}
         />
 
         <TextInput
-          style={styles.loginTextInput}
+          style={[registerStyles.loginTextInput, {marginBottom: scaleSize(0)}]}
           placeholder="Password"
           placeholderTextColor={"#fff"}
           secureTextEntry={true}
         />
 
         <TouchableOpacity onPress={handleForgetPassword}>
-        <Text style={styles.forgetPasswordText}>Forget Password ?</Text>
+          <Text style={styles.forgetPasswordText}>Forget Password ?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={button.primaryButton}>
@@ -73,28 +79,10 @@ export default EmailLogin;
 const windowWidth = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
-  welcomeBackText: {
-    color: Colors.custom.white,
-    fontSize: 24,
-    fontFamily: "PlusJakartaSans-Bold",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  loginTextInput: {
-    backgroundColor: "#4F4F4F",
-    color: Colors.custom.white,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 5,
-    marginVertical: 10,
-    height: 50,
-  },
   forgetPasswordText: {
     color: Colors.custom.white,
     textAlign: "center",
-    fontSize: 15,
-    marginHorizontal: 10,
-    marginTop:10,
-    marginBottom:5
+    fontSize: scaleSize(14),
+    marginVertical: scaleSize(16),
   },
 });

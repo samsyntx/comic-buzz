@@ -1,17 +1,20 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { Colors } from "@/constants/Colors";
+import { scaleSize } from "../utils/scale-size";
 
 const windowWidth = Dimensions.get("window").width;
 
 export const originals = StyleSheet.create({
-  mainImage: {
-    width: "100%",
-    height: 312,
-    borderRadius: 10,
+  originalsFeatureImage: {
+    width: windowWidth - scaleSize(20),
+    height: scaleSize(312),
+    overflow: "hidden",
+    marginBottom: scaleSize(25),
   },
   collectionContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: scaleSize(8),
+    marginTop:scaleSize(16)
   },
 });

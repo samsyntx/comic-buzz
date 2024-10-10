@@ -12,6 +12,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import AppStructure from "@/app/middleware/Structure";
+import { scaleSize } from "@/app/utils/scale-size";
+import { registerStyles } from "./signup-email";
 
 const passwordValidationList = [
   { title: "At Least 8 characters", isTrue: false },
@@ -30,42 +32,50 @@ const CreateEmailPassword = function () {
     <AppStructure>
       <ScrollView
         contentContainerStyle={{
-          paddingHorizontal: 20,
+          paddingHorizontal: scaleSize(15),
+          marginTop: scaleSize(35),
         }}
       >
         <TouchableOpacity onPress={handlePressGoBack}>
           <Ionicons
             name="arrow-back-outline"
-            size={30}
-            style={{ color: "#fff" }}
+            size={scaleSize(30)}
+            style={registerStyles.backIcon}
           />
         </TouchableOpacity>
 
-        <Text style={styles.welcomeBackText}>Create your password</Text>
+        <Text style={registerStyles.welcomeBackText}>Create your password</Text>
 
         <TextInput
-          style={styles.loginTextInput}
+          style={[registerStyles.loginTextInput, {marginBottom:scaleSize(10)}]}
           placeholder="Password"
           placeholderTextColor={"#fff"}
           secureTextEntry={true}
         />
 
-        {passwordValidationList.map((each, index) => (
-          <View key={index} style={styles.passwordValidationContainer}>
-            <View style={[styles.validateCircle, each.isTrue && styles.validateIsTrueStyle]}>
-              {each.isTrue && (
-                <Ionicons
-                  name="checkmark-outline"
-                  size={15}
-                  style={{ color: Colors.custom.white }}
-                />
-              )}
+        <View style={{ marginBottom: scaleSize(20) }}>
+          {passwordValidationList.map((each, index) => (
+            <View key={index} style={styles.passwordValidationContainer}>
+              <View
+                style={[
+                  styles.validateCircle,
+                  each.isTrue && styles.validateIsTrueStyle,
+                ]}
+              >
+                {each.isTrue && (
+                  <Ionicons
+                    name="checkmark-outline"
+                    size={15}
+                    style={{ color: Colors.custom.white }}
+                  />
+                )}
+              </View>
+              <Text style={styles.validateText}>{each.title}</Text>
             </View>
-            <Text style={styles.validateText}>{each.title}</Text>
-          </View>
-        ))}
+          ))}
+        </View>
 
-        <TouchableOpacity style={[button.primaryButton, {marginTop:15}]}>
+        <TouchableOpacity style={[button.primaryButton, { marginTop: 15 }]}>
           <Text style={button.primaryButtonText}>Sign Up</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -77,46 +87,32 @@ export default CreateEmailPassword;
 
 export const styles = StyleSheet.create({
   passwordValidationContainer: {
-    marginVertical: 5,
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
+    gap: scaleSize(10),
+    marginBottom:scaleSize(5)
   },
   validateCircle: {
-    width: 20,
-    height: 20,
-    borderRadius: 100,
+    width: scaleSize(20),
+    height: scaleSize(20),
+    borderRadius: scaleSize(100),
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
   },
   validateText: {
-    fontSize: 14,
+    fontSize: scaleSize(14),
     color: Colors.custom.white,
   },
   validateIsTrueStyle: {
-    backgroundColor: '#00890e',
-  },
-  welcomeBackText: {
-    color: Colors.custom.white,
-    fontSize: 24,
-    fontFamily: "PlusJakartaSans-Bold",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  loginTextInput: {
-    backgroundColor: "#4F4F4F",
-    color: Colors.custom.white,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 5,
-    marginVertical: 10,
-    height: 50,
+    backgroundColor: "#00890e",
   },
   forgetPasswordText: {
     color: Colors.custom.white,
     textAlign: "center",
-    fontSize: 15,
-    marginHorizontal: 10,
+    fontSize: scaleSize(14),
+    marginHorizontal: scaleSize(10),
+    marginTop: scaleSize(10),
+    marginBottom: scaleSize(5),
   },
 });

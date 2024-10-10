@@ -38,6 +38,5 @@ export const common = StyleSheet.create({
     flex: 1,
     width: windowWidth,
     backgroundColor: Colors.custom.background,
-    paddingTop:10
   },
 });

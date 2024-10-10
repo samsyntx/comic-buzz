@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { Colors } from "@/constants/Colors";
+import { scaleSize } from "@/app/utils/scale-size";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -8,22 +9,22 @@ export const geresStyle = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     width: windowWidth,
-    padding: 10,
+    padding: scaleSize(10),
+    gap:scaleSize(8)
   },
   liItemContainer: {
-    flexGrow: 1,
     flexDirection: "column",
     alignItems: "center",
-    marginRight: 15,
+    justifyContent:'center'
   },
   iconContainer: {
-    height: 70,
-    width: 70,
-    borderRadius: 50,
+    height: scaleSize(70),
+    width: scaleSize(70),
+    borderRadius: scaleSize(50),
     backgroundColor: Colors.custom.secondaryBackground,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 10,
+    marginBottom: scaleSize(10),
   },
   title: {
     color: Colors.custom.white,

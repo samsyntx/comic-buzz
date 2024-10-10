@@ -11,6 +11,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import AppStructure from "@/app/middleware/Structure";
+import { registerStyles } from "../signup/signup-email";
+import { scaleSize } from "@/app/utils/scale-size";
 
 const ForgetEmailPassword = function () {
   const router = useRouter();
@@ -23,21 +25,22 @@ const ForgetEmailPassword = function () {
     <AppStructure>
       <ScrollView
         contentContainerStyle={{
-          paddingHorizontal: 20,
+          paddingHorizontal: scaleSize(15),
+          marginTop: scaleSize(35),
         }}
       >
         <TouchableOpacity onPress={handlePressGoBack}>
           <Ionicons
             name="arrow-back-outline"
-            size={30}
-            style={{ color: "#fff" }}
+            size={scaleSize(30)}
+            style={registerStyles.backIcon}
           />
         </TouchableOpacity>
 
-        <Text style={styles.welcomeBackText}>Forget Password</Text>
+        <Text style={registerStyles.welcomeBackText}>Forget Password</Text>
 
         <TextInput
-          style={styles.loginTextInput}
+          style={registerStyles.loginTextInput}
           placeholder="Enter your email"
           placeholderTextColor={"#fff"}
         />
@@ -52,28 +55,3 @@ const ForgetEmailPassword = function () {
 
 export default ForgetEmailPassword;
 
-
-export const styles = StyleSheet.create({
-  welcomeBackText: {
-    color: Colors.custom.white,
-    fontSize: 24,
-    fontFamily: "PlusJakartaSans-Bold",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  loginTextInput: {
-    backgroundColor: "#4F4F4F",
-    color: Colors.custom.white,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 5,
-    marginVertical: 10,
-    height: 50,
-  },
-  forgetPasswordText: {
-    color: Colors.custom.white,
-    textAlign: "center",
-    fontSize: 15,
-    marginHorizontal: 10,
-  },
-});
