@@ -1,4 +1,4 @@
-import { Image, View, ScrollView, Text } from "react-native";
+import { Image, View, ScrollView, Text, TouchableOpacity } from "react-native";
 import { styles } from "../styles/home-styles";
 import SaveComicItem from "../layouts/comic-items/SaveComicItem";
 import DropComicItems from "../layouts/comic-items/DropComicItem";
@@ -7,6 +7,8 @@ import AppStructure from "../middleware/Structure";
 import FeaturedComicItem from "../layouts/comic-items/FeaturedComicItem";
 import { scaleSize } from "../utils/scale-size";
 import Slider from "@/components/SnapSlider";
+import { Ionicons } from "@expo/vector-icons";
+import { originals } from "../styles/original-styles";
 
 const featuredComicList = [
   {
@@ -120,16 +122,30 @@ export default function HomeScreen() {
     <AuthMiddleware>
       <AppStructure>
         <ScrollView>
-          <Slider itemsData={formattedFeaturedComicList} renderItem={renderItem} />
+          <View style={{ marginBottom: scaleSize(32) }}>
+            <Slider
+              itemsData={formattedFeaturedComicList}
+              renderItem={renderItem}
+            />
+          </View>
 
           <View style={styles.collectionContainer}>
-            <Text style={styles.homeNewCollectionName}>Latest Drops</Text>
+            <View style={styles.homeDropAndArrowContainer}>
+              <Text style={styles.homeNewCollectionName}>Latest Drops</Text>
+              <TouchableOpacity>
+                <Ionicons
+                  name="chevron-forward-outline"
+                  size={scaleSize(20)}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={{
                 flexDirection: "row",
-                marginBottom: scaleSize(24),
+                marginBottom: scaleSize(32),
                 gap: scaleSize(8),
               }}
             >
@@ -138,7 +154,16 @@ export default function HomeScreen() {
               ))}
             </ScrollView>
 
-            <Text style={styles.homeNewCollectionName}>Add To Your List</Text>
+            <View style={styles.homeDropAndArrowContainer}>
+              <Text style={styles.homeNewCollectionName}>Add To Your List</Text>
+              <TouchableOpacity>
+                <Ionicons
+                  name="chevron-forward-outline"
+                  size={scaleSize(20)}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
 
             <ScrollView
               horizontal={true}
@@ -146,11 +171,37 @@ export default function HomeScreen() {
               contentContainerStyle={{
                 flexDirection: "row",
                 gap: scaleSize(8),
-                marginBottom: scaleSize(24),
+                marginBottom:scaleSize(32)
               }}
             >
               {saveComicList.map((each, index) => (
                 <SaveComicItem key={index} detail={each} />
+              ))}
+            </ScrollView>
+
+            {/* Coming Soon Section */}
+            <View style={styles.homeDropAndArrowContainer}>
+              <Text style={styles.homeNewCollectionName}>Coming Soon</Text>
+              <TouchableOpacity>
+                <Ionicons
+                  name="chevron-forward-outline"
+                  size={scaleSize(20)}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
+
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{
+                flexDirection: "row",
+                gap: scaleSize(8),
+                marginBottom:scaleSize(32)
+              }}
+            >
+              {saveComicList.map((each, index) => (
+                <SaveComicItem removeSave={true} key={index} detail={each} />
               ))}
             </ScrollView>
           </View>

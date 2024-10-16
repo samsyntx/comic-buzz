@@ -27,7 +27,7 @@ const originalFeaturedList = [
   },
 ];
 
-const originalItemList = [
+export const originalItemList = [
   {
     id: 0,
     title: "Watchmen",

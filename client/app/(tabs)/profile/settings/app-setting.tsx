@@ -3,16 +3,12 @@ import {
   View,
   ScrollView,
   Text,
-  TextInput,
-  StyleSheet,
   Image,
   TouchableOpacity,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import CustomStatusBar from "@/components/CustomStatusBar";
 import { Ionicons } from "@expo/vector-icons";
-import { NoUserImage } from "../../assets/data";
-import { settingStyles } from "../styles/settings-styles";
+import { NoUserImage } from "@/assets/data";
+import { settingStyles } from "@/app/styles/settings-styles";
 import HorizontalLine from "@/components/HorizontalLine";
 import {
   HelpQuestionIcon,
@@ -21,9 +17,9 @@ import {
   StarIcon,
 } from "@/assets/icons";
 import { useRouter } from "expo-router";
-import { useAuth } from "../context/AuthContext";
-import AuthMiddleware from "../middleware/authMiddleware";
-import AppStructure from "../middleware/Structure";
+import { useAuth } from "@/app/context/AuthContext";
+import AuthMiddleware from "@/app/middleware/authMiddleware";
+import AppStructure from "@/app/middleware/Structure";
 
 export default function SettingsSecreen() {
   const router = useRouter();
@@ -91,7 +87,7 @@ export default function SettingsSecreen() {
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => router.push("settings/edit-profile")}
+              onPress={() => router.push("/profile/settings/edit-profile")}
             >
               <Text style={settingStyles.profileEditButton}>Edit</Text>
             </TouchableOpacity>

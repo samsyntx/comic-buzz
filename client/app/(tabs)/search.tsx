@@ -107,9 +107,9 @@ export default function SearchScreen() {
       <AppStructure>
         <ScrollView>
           <View style={searchStyles.searchInputContainer}>
-            <Ionicons name="search-outline" size={20} color="white" />
+            <Ionicons name="search-outline" size={scaleSize(20)} color="white" />
             <TextInput
-              style={{ flexGrow: 1, color: "#ffffff" }}
+              style={{ flexGrow: 1, color: "#ffffff", fontSize: scaleSize(16) }}
               placeholder="Find Your Comics"
               placeholderTextColor="#999999"
               onChangeText={handleChangeSearch}
@@ -143,11 +143,14 @@ export default function SearchScreen() {
               <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                  flexDirection: "row",
+                  marginBottom: scaleSize(24),
+                  gap: scaleSize(8),
+                }}
               >
                 {[0, 1, 2, 3, 4, 5, 6, 7].map((each, index) => (
-                  <View key={index} style={styles.ListItemsView}>
-                    <BrandCollectionItem />
-                  </View>
+                  <BrandCollectionItem key={index} />
                 ))}
               </ScrollView>
 
@@ -165,7 +168,7 @@ export default function SearchScreen() {
                   return <SearchItem key={index} detail={each} />;
                 })
               ) : (
-                <Text style={{ color: "#ffff" }}>No Data Found</Text>
+                <Text style={{ color: "#ffff", fontSize: scaleSize(16) }}>No Data Found</Text>
               )}
             </View>
           )}

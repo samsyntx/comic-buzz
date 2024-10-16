@@ -3,7 +3,7 @@ import { View, ScrollView, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomStatusBar from "@/components/CustomStatusBar";
 import { Ionicons } from "@expo/vector-icons";
-import { settingStyles } from "../../styles/settings-styles";
+import { settingStyles } from "@/app/styles/settings-styles";
 import HorizontalLine from "@/components/HorizontalLine";
 import {
   HelpQuestionIcon,
@@ -46,7 +46,7 @@ export default function EditProfilePage() {
     <AuthMiddleware>
       <AppStructure>
         <ScrollView contentContainerStyle={{ padding: 15 }}>
-          <TouchableOpacity onPress={() => router.push("settings")}>
+          <TouchableOpacity onPress={() => router.push("/profile")}>
             <Ionicons name="chevron-back-outline" color="#ffff" size={30} />
           </TouchableOpacity>
 

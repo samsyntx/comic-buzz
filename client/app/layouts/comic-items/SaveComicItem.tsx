@@ -11,10 +11,12 @@ interface PropsType {
     title: string;
     thumbnail: string;
   };
+  removeSave?: boolean;
 }
 
 const SaveComicItem: React.FC<PropsType> = (props: PropsType): JSX.Element => {
   const { title, thumbnail } = props.detail;
+  const { removeSave } = props;
 
   return (
     <View style={styles.normalContainer}>
@@ -24,7 +26,7 @@ const SaveComicItem: React.FC<PropsType> = (props: PropsType): JSX.Element => {
         }}
         style={styles.comicImage}
       />
-      <TouchableOpacity style={styles.normalSaveButton}>
+      {!removeSave && <TouchableOpacity style={styles.normalSaveButton}>
         <SaveSvgIcon
           height={scaleSize(48).toString()}
           width={scaleSize(40).toString()}
@@ -32,7 +34,7 @@ const SaveComicItem: React.FC<PropsType> = (props: PropsType): JSX.Element => {
         <View style={styles.plusIconForSaveButton}>
           <Ionicons name="add-outline" size={scaleSize(30)} color="white" />
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity>}
       <Text style={styles.bookTitle}>{title}</Text>
     </View>
   );

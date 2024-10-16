@@ -28,5 +28,6 @@ export const geresStyle = StyleSheet.create({
   },
   title: {
     color: Colors.custom.white,
+    fontSize: scaleSize(12),
   },
 });

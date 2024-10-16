@@ -29,6 +29,12 @@ export const styles = StyleSheet.create({
     fontFamily: "PlusJakartaSans-Medium",
     color: Colors.custom.white,
     fontSize: scaleSize(16),
-    marginBottom: scaleSize(16),
   },
+  homeDropAndArrowContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    gap:scaleSize(8),
+    marginBottom:scaleSize(16)
+  }
 });
