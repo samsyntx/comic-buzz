@@ -5,12 +5,13 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 interface structureProps {
   children: React.ReactNode;
+  noStatus?: boolean;
 }
 
-export default function AppStructure({ children }: structureProps) {
+export default function AppStructure({ children, noStatus }: structureProps) {
   return (
     <SafeAreaView style={common.container}>
-      <CustomStatusBar />
+      {!noStatus && <CustomStatusBar />}
       <GestureHandlerRootView style={{ flexGrow: 1 }}>
         {children}
       </GestureHandlerRootView>

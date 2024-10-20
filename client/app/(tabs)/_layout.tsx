@@ -3,7 +3,12 @@ import React from "react";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { HomeSvgIcon, OriginalSvgIcon, ProfileSvgIcon, SearchSvgIcon } from "@/assets/icons";
+import {
+  HomeSvgIcon,
+  OriginalSvgIcon,
+  ProfileSvgIcon,
+  SearchSvgIcon,
+} from "@/assets/icons";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -32,7 +37,12 @@ export default function TabLayout() {
         name="originals"
         options={{
           title: "Originals",
-          tabBarIcon: ({ color, focused }) => focused ? <OriginalSvgIcon color={Colors.custom.primary}/> : <OriginalSvgIcon />,
+          tabBarIcon: ({ color, focused }) =>
+            focused ? (
+              <OriginalSvgIcon color={Colors.custom.primary} />
+            ) : (
+              <OriginalSvgIcon />
+            ),
         }}
       />
 
@@ -40,7 +50,12 @@ export default function TabLayout() {
         name="search"
         options={{
           title: "Search",
-          tabBarIcon: ({ color, focused }) => focused ? <SearchSvgIcon color={Colors.custom.primary}/> : <SearchSvgIcon />,
+          tabBarIcon: ({ color, focused }) =>
+            focused ? (
+              <SearchSvgIcon color={Colors.custom.primary} />
+            ) : (
+              <SearchSvgIcon />
+            ),
         }}
       />
 
@@ -48,7 +63,20 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: "Profile",
-          tabBarIcon: ({ color, focused }) => focused ? <ProfileSvgIcon color={Colors.custom.primary}/> : <ProfileSvgIcon />,
+          tabBarIcon: ({ color, focused }) =>
+            focused ? (
+              <ProfileSvgIcon color={Colors.custom.primary} />
+            ) : (
+              <ProfileSvgIcon />
+            ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="info"
+        options={{
+          title: "Info",
+          href: null,
         }}
       />
     </Tabs>
