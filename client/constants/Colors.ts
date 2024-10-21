@@ -28,7 +28,8 @@ export const Colors = {
     secondaryBackground:"#222324",
     white: "#E5E5E5",
     black:"#111",
-    gray:"#6E6E70"
+    gray:"#6E6E70",
+    redLight:'#EB4E63'
   },
   
 };
