@@ -37,6 +37,5 @@ export const common = StyleSheet.create({
   container: {
     flex: 1,
     width: windowWidth,
-    backgroundColor: Colors.custom.background,
   },
 });

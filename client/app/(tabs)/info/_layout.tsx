@@ -14,6 +14,13 @@ export default function ChatTabsLayout() {
           title: "Info Screen",
         }}
       />
+
+      <Tabs.Screen
+        name="rate-book/[bookId]"
+        options={{
+          title: "Rate A Book",
+        }}
+      />
     </Tabs>
   );
 }

@@ -17,11 +17,13 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
+    "PlusJakartaSans": require("../assets/fonts/PlusJakartaSans-Regular.ttf"),
     "PlusJakartaSans-400": require("../assets/fonts/PlusJakartaSans-Regular.ttf"),
     "PlusJakartaSans-500": require("../assets/fonts/PlusJakartaSans-Medium.ttf"),
     "PlusJakartaSans-700": require("../assets/fonts/PlusJakartaSans-Bold.ttf"),
     "PlusJakartaSans-600": require("../assets/fonts/PlusJakartaSans-SemiBold.ttf"),
     //DM Sans Family
+    "DMSans": require("../assets/fonts/DMSans-Regular.ttf"),
     "DMSans-400": require("../assets/fonts/DMSans-Regular.ttf"),
     "DMSans-500": require("../assets/fonts/DMSans-Medium.ttf"),
     "DMSans-600": require("../assets/fonts/DMSans-SemiBold.ttf"),

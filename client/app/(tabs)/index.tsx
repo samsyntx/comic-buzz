@@ -9,6 +9,7 @@ import { scaleSize } from "../utils/scale-size";
 import Slider from "@/components/SnapSlider";
 import { Ionicons } from "@expo/vector-icons";
 import { originals } from "../styles/original-styles";
+import { router } from "expo-router";
 
 const featuredComicList = [
   {
@@ -27,7 +28,7 @@ const featuredComicList = [
   },
 ];
 
-const dropComicList = [
+export const dropComicList = [
   {
     id: 0,
     title: "",
@@ -60,7 +61,7 @@ const dropComicList = [
   },
 ];
 
-const saveComicList = [
+export const saveComicList = [
   {
     id: 0,
     title: "Watchmen",
@@ -118,6 +119,10 @@ export default function HomeScreen() {
     );
   };
 
+  const handleViewDetailOverview = () => {
+    router.push('/(tabs)/info/overview/detail-page')
+  }
+
   return (
     <AuthMiddleware>
       <AppStructure>
@@ -132,7 +137,7 @@ export default function HomeScreen() {
           <View style={styles.collectionContainer}>
             <View style={styles.homeDropAndArrowContainer}>
               <Text style={styles.homeNewCollectionName}>Latest Drops</Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleViewDetailOverview}>
                 <Ionicons
                   name="chevron-forward-outline"
                   size={scaleSize(20)}
@@ -156,7 +161,7 @@ export default function HomeScreen() {
 
             <View style={styles.homeDropAndArrowContainer}>
               <Text style={styles.homeNewCollectionName}>Add To Your List</Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleViewDetailOverview}>
                 <Ionicons
                   name="chevron-forward-outline"
                   size={scaleSize(20)}
@@ -182,7 +187,7 @@ export default function HomeScreen() {
             {/* Coming Soon Section */}
             <View style={styles.homeDropAndArrowContainer}>
               <Text style={styles.homeNewCollectionName}>Coming Soon</Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleViewDetailOverview}>
                 <Ionicons
                   name="chevron-forward-outline"
                   size={scaleSize(20)}

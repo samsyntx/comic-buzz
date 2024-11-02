@@ -1,5 +1,6 @@
 import AuthMiddleware from "@/app/middleware/authMiddleware";
 import AppStructure from "@/app/middleware/Structure";
+import { originals } from "@/app/styles/original-styles";
 import { scaleSize } from "@/app/utils/scale-size";
 import { NoComicImage } from "@/assets/data";
 import {
@@ -7,20 +8,70 @@ import {
   OutlineSaveSvgIcon,
   OutlineShareSvgIcon,
   OutlineStarSvgIcon,
-  SaveSvgIcon,
 } from "@/assets/icons";
-import CustomStatusBar from "@/components/CustomStatusBar";
 import ReviewCard from "@/components/ReviewCard";
 import StarRating from "@/components/StarRating";
 import { Colors } from "@/constants/Colors";
 import { button } from "@/constants/Styles";
 import { Ionicons } from "@expo/vector-icons";
-import { WINDOW_WIDTH } from "@gorhom/bottom-sheet";
+import BottomSheet, { WINDOW_WIDTH } from "@gorhom/bottom-sheet";
 import { ScrollView } from "react-native";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { originalItemList } from "../originals";
+import OriginalComicItem from "@/app/layouts/comic-items/OriginalsComicItems";
+import { router } from "expo-router";
+import { useRef, useState } from "react";
+import AppBottomSheet from "@/components/AppBottomSheet";
+import SaveComicItem from "@/app/layouts/comic-items/SaveComicItem";
+import { saveComicList } from "..";
 
 export default function InfoDetailScreen() {
+  const recommandedRef = useRef<BottomSheet>(null);
+
+  const hadleToggleRateBook = () => {
+    router.push(`/(tabs)/info/rate-book/${"bookId"}`);
+    recommandedRef.current?.expand();
+  };
+
+  const recommandedRefSheet = () => {
+    return (
+      <View style={{ paddingHorizontal: scaleSize(10) }}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: scaleSize(32),
+            marginTop: scaleSize(15),
+          }}
+        >
+          <Text style={styles.mightAlsoLike}>You Might Also Love</Text>
+          <TouchableOpacity onPress={() => recommandedRef.current?.close()}>
+            <Ionicons
+              name="close-outline"
+              size={scaleSize(35)}
+              style={{ color: "#fff" }}
+            />
+          </TouchableOpacity>
+        </View>
+
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            flexDirection: "row",
+            gap: scaleSize(8),
+          }}
+        >
+          {saveComicList.map((each, index) => (
+            <SaveComicItem key={index} detail={each} />
+          ))}
+        </ScrollView>
+      </View>
+    );
+  };
+
   return (
     <AuthMiddleware>
       <AppStructure noStatus={true}>
@@ -41,7 +92,11 @@ export default function InfoDetailScreen() {
                 </Text>
                 <Text style={styles.infoDisplaySeconday}>By Alan Moore </Text>
                 <Text style={styles.infoDisplaySeconday}>2008 • 64 Pages</Text>
-                <StarRating defaultRating={4} readonly />
+                <StarRating
+                  starColor={Colors.custom.primary}
+                  defaultRating={4}
+                  readonly
+                />
               </View>
 
               <Image
@@ -68,7 +123,6 @@ export default function InfoDetailScreen() {
               style={[
                 button.primaryButton,
                 {
-                  backgroundColor: Colors.custom.redLight,
                   marginTop: scaleSize(16),
                   marginBottom: scaleSize(24),
                 },
@@ -89,7 +143,7 @@ export default function InfoDetailScreen() {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 gap: scaleSize(10),
-                marginBottom: scaleSize(30),
+                marginBottom: scaleSize(32),
               }}
             >
               <TouchableOpacity style={styles.iconTextContainer}>
@@ -106,7 +160,10 @@ export default function InfoDetailScreen() {
                 <Text style={styles.iconText}>Bookshelf</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.iconTextContainer}>
+              <TouchableOpacity
+                onPress={hadleToggleRateBook}
+                style={styles.iconTextContainer}
+              >
                 <View style={styles.iconContainer}>
                   <OutlineStarSvgIcon />
                 </View>
@@ -123,13 +180,101 @@ export default function InfoDetailScreen() {
 
             <Text style={styles.infoDetailTitle}>Community Reviews</Text>
 
-            <ScrollView horizontal>
+            <ScrollView
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              contentContainerStyle={{
+                flexDirection: "row",
+                gap: scaleSize(8),
+                marginBottom: scaleSize(32),
+              }}
+            >
               {[1, 1, 1, 1, 1].map((each, index) => (
                 <ReviewCard key={index} />
               ))}
             </ScrollView>
+
+            <View style={styles.collectionContainer}>
+              <Text style={styles.collectionName}>Related Comics</Text>
+              <TouchableOpacity>
+                <Ionicons
+                  name="chevron-forward-outline"
+                  size={scaleSize(20)}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{
+                flexDirection: "row",
+                marginBottom: scaleSize(24),
+                gap: scaleSize(8),
+              }}
+            >
+              {originalItemList.map((each, index) => (
+                <OriginalComicItem key={index} detail={each} />
+              ))}
+            </ScrollView>
+
+            <View style={styles.collectionContainer}>
+              <Text style={styles.collectionName}>Readers Also Loved</Text>
+              <TouchableOpacity>
+                <Ionicons
+                  name="chevron-forward-outline"
+                  size={scaleSize(20)}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{
+                flexDirection: "row",
+                marginBottom: scaleSize(24),
+                gap: scaleSize(8),
+              }}
+            >
+              {originalItemList.map((each, index) => (
+                <OriginalComicItem key={index} detail={each} />
+              ))}
+            </ScrollView>
+
+            <View style={styles.collectionContainer}>
+              <Text style={styles.collectionName}>More By Alan Moore</Text>
+              <TouchableOpacity>
+                <Ionicons
+                  name="chevron-forward-outline"
+                  size={scaleSize(20)}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{
+                flexDirection: "row",
+                marginBottom: scaleSize(24),
+                gap: scaleSize(8),
+              }}
+            >
+              {originalItemList.map((each, index) => (
+                <OriginalComicItem key={index} detail={each} />
+              ))}
+            </ScrollView>
           </View>
         </ScrollView>
+
+        <AppBottomSheet
+          bottomSheetRef={recommandedRef}
+          customSnap={[scaleSize(45).toString()]}
+          hideIndicator
+        >
+          {recommandedRefSheet()}
+        </AppBottomSheet>
       </AppStructure>
     </AuthMiddleware>
   );
@@ -174,10 +319,10 @@ const styles = StyleSheet.create({
     borderRadius: scaleSize(10),
   },
   infoDetailTitle: {
-    fontSize: scaleSize(14),
+    fontSize: scaleSize(16),
     fontFamily: "DMSans-700",
     lineHeight: scaleSize(20),
-    marginBottom: scaleSize(8),
+    marginBottom: scaleSize(14),
     color: Colors.custom.white,
   },
   infoDetailParagraph: {
@@ -210,5 +355,23 @@ const styles = StyleSheet.create({
     fontFamily: "DMSans-400",
     lineHeight: scaleSize(16),
     color: Colors.custom.white,
+  },
+  collectionName: {
+    fontFamily: "PlusJakartaSans-Medium",
+    color: Colors.custom.white,
+    fontSize: scaleSize(16),
+  },
+  collectionContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: scaleSize(12),
+  },
+  mightAlsoLike: {
+    color: Colors.custom.white,
+    fontSize: scaleSize(18),
+    fontFamily: "PlusJakrataSans",
+    lineHeight: scaleSize(20),
+    fontWeight: "500",
   },
 });

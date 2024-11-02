@@ -13,6 +13,7 @@ type StarRatingProps = {
   starSize?: number;
   isDetail?: boolean;
   size?: number;
+  starColor?: string;
 };
 
 const StarRating: React.FC<StarRatingProps> = ({
@@ -23,6 +24,7 @@ const StarRating: React.FC<StarRatingProps> = ({
   starSize = 40,
   isDetail = false,
   size = scaleSize(20),
+  starColor,
 }) => {
   const [rating, setRating] = useState<number>(defaultRating);
 
@@ -40,15 +42,25 @@ const StarRating: React.FC<StarRatingProps> = ({
         count={starCount}
         half={true}
         starSize={starSize}
-        fullStar={<Ionicons size={size} name="star" style={styles.starStyle} />}
+        fullStar={
+          <Ionicons
+            size={size}
+            name="star"
+            style={[styles.starStyle, { color: starColor || "#F5C618" }]}
+          />
+        }
         emptyStar={
-          <Ionicons size={size} name="star-outline" style={styles.starStyle} />
+          <Ionicons
+            size={size}
+            name="star-outline"
+            style={[styles.starStyle, { color: starColor || "#F5C618" }]}
+          />
         }
         halfStar={
           <Ionicons
             size={size}
             name="star-half-outline"
-            style={styles.starStyle}
+            style={[styles.starStyle, { color: starColor || "#F5C618" }]}
           />
         }
         update={(val: any) => handleUpdate(val)}
@@ -69,7 +81,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   starStyle: {
-    color: Colors.custom.primary,
     backgroundColor: "transparent",
     textShadowColor: "black",
     textShadowOffset: { width: 1, height: 1 },

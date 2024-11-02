@@ -11,6 +11,10 @@ import { originalItemList } from "../originals";
 import OriginalComicItem from "@/app/layouts/comic-items/OriginalsComicItems";
 
 export default function ProfileScreen() {
+  const handleViewDetailOverview = () => {
+    router.push('/(tabs)/info/overview/detail-page')
+  }
+
   return (
     <AuthMiddleware>
       <AppStructure>
@@ -72,7 +76,7 @@ export default function ProfileScreen() {
               <Text style={profileStyles.homeNewCollectionName}>
                 Latest Drops
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleViewDetailOverview}>
                 <Ionicons
                   name="chevron-forward-outline"
                   size={scaleSize(20)}
@@ -99,7 +103,7 @@ export default function ProfileScreen() {
               <Text style={profileStyles.homeNewCollectionName}>
               Favourites 
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleViewDetailOverview}>
                 <Ionicons
                   name="chevron-forward-outline"
                   size={scaleSize(20)}
@@ -125,7 +129,7 @@ export default function ProfileScreen() {
               <Text style={profileStyles.homeNewCollectionName}>
               Currently Reading 
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleViewDetailOverview}>
                 <Ionicons
                   name="chevron-forward-outline"
                   size={scaleSize(20)}

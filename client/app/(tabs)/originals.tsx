@@ -8,6 +8,7 @@ import AppStructure from "../middleware/Structure";
 import Slider from "@/components/SnapSlider";
 import OriginalComicItem from "../layouts/comic-items/OriginalsComicItems";
 import { scaleSize } from "../utils/scale-size";
+import { router } from "expo-router";
 
 const originalFeaturedList = [
   {
@@ -75,6 +76,10 @@ export default function OriginalScreen() {
     );
   };
 
+  const handleViewDetailOverview = () => {
+    router.push('/(tabs)/info/overview/detail-page')
+  }
+
   return (
     <AuthMiddleware>
       <AppStructure>
@@ -83,7 +88,7 @@ export default function OriginalScreen() {
 
           <View style={originals.collectionContainer}>
             <Text style={styles.homeNewCollectionName}>Latest Drops</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleViewDetailOverview}>
               <Ionicons
                 name="chevron-forward-outline"
                 size={scaleSize(20)}
@@ -107,7 +112,7 @@ export default function OriginalScreen() {
 
           <View style={originals.collectionContainer}>
             <Text style={styles.homeNewCollectionName}>Top Rated</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleViewDetailOverview}>
               <Ionicons
                 name="chevron-forward-outline"
                 size={scaleSize(20)}
@@ -131,7 +136,7 @@ export default function OriginalScreen() {
 
           <View style={originals.collectionContainer}>
             <Text style={styles.homeNewCollectionName}>Editor’s Choice</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleViewDetailOverview}>
               <Ionicons
                 name="chevron-forward-outline"
                 size={scaleSize(20)}

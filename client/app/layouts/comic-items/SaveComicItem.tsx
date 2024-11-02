@@ -4,6 +4,7 @@ import { styles } from "./save-comic-styles";
 import { SaveSvgIcon } from "@/assets/icons";
 import { Ionicons } from "@expo/vector-icons";
 import { scaleSize } from "@/app/utils/scale-size";
+import { router } from "expo-router";
 
 interface PropsType {
   detail: {
@@ -19,24 +20,28 @@ const SaveComicItem: React.FC<PropsType> = (props: PropsType): JSX.Element => {
   const { removeSave } = props;
 
   return (
-    <View style={styles.normalContainer}>
-      <Image
-        source={{
-          uri: thumbnail,
-        }}
-        style={styles.comicImage}
-      />
-      {!removeSave && <TouchableOpacity style={styles.normalSaveButton}>
-        <SaveSvgIcon
-          height={scaleSize(48).toString()}
-          width={scaleSize(40).toString()}
+    <TouchableOpacity onPress={() => router.push("/(tabs)/info")}>
+      <View style={styles.normalContainer}>
+        <Image
+          source={{
+            uri: thumbnail,
+          }}
+          style={styles.comicImage}
         />
-        <View style={styles.plusIconForSaveButton}>
-          <Ionicons name="add-outline" size={scaleSize(30)} color="white" />
-        </View>
-      </TouchableOpacity>}
-      <Text style={styles.bookTitle}>{title}</Text>
-    </View>
+        {!removeSave && (
+          <TouchableOpacity style={styles.normalSaveButton}>
+            <SaveSvgIcon
+              height={scaleSize(48).toString()}
+              width={scaleSize(40).toString()}
+            />
+            <View style={styles.plusIconForSaveButton}>
+              <Ionicons name="add-outline" size={scaleSize(30)} color="white" />
+            </View>
+          </TouchableOpacity>
+        )}
+        <Text style={styles.bookTitle}>{title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

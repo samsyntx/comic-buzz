@@ -10,10 +10,12 @@ const AppBottomSheet = function ({
   bottomSheetRef,
   customSnap = initialSnapPoints,
   children,
+  hideIndicator = false,
 }: {
-  bottomSheetRef: React.RefObject<BottomSheet>,
-  customSnap?: string[],
-  children: ReactNode,
+  bottomSheetRef: React.RefObject<BottomSheet>;
+  customSnap?: string[];
+  children: ReactNode;
+  hideIndicator?: boolean;
 }) {
   const snapPoints = useMemo(() => customSnap, [customSnap]);
 
@@ -34,7 +36,10 @@ const AppBottomSheet = function ({
       index={-1}
       snapPoints={snapPoints}
       enablePanDownToClose={true}
-      handleIndicatorStyle={{ backgroundColor: Colors.custom.white }}
+      handleIndicatorStyle={[
+        { backgroundColor: Colors.custom.white },
+        hideIndicator && { display: "none" },
+      ]}
       backgroundStyle={{ backgroundColor: Colors.custom.background }}
       backdropComponent={renderBackdrop}
     >

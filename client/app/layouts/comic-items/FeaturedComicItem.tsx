@@ -1,10 +1,11 @@
 import React from "react";
-import { Image, View, TouchableOpacity, Text } from "react-native";
+import { Image, View, TouchableOpacity, Text, Touchable } from "react-native";
 import { StyleSheet, Dimensions } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { SaveSvgIcon } from "@/assets/icons";
 import { Ionicons } from "@expo/vector-icons";
 import { scaleSize } from "@/app/utils/scale-size";
+import { Link, router } from "expo-router";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -19,18 +20,24 @@ interface PropsType {
 const FeaturedComicItem: React.FC<PropsType> = (
   props: PropsType
 ): JSX.Element => {
-  const {detail} = props;
+  const { detail } = props;
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => router.push("/(tabs)/info")}
+      style={styles.container}
+    >
       <Image
         source={{
-          uri: detail.display
+          uri: detail.display,
         }}
         style={styles.comicImage}
       />
       <TouchableOpacity style={styles.saveButton}>
-        <SaveSvgIcon height={scaleSize(48).toString()} width={scaleSize(40).toString()}/>
+        <SaveSvgIcon
+          height={scaleSize(48).toString()}
+          width={scaleSize(40).toString()}
+        />
         <View style={styles.plusIconForSaveButton}>
           <Ionicons name="add-outline" size={scaleSize(30)} color="white" />
         </View>
@@ -38,7 +45,7 @@ const FeaturedComicItem: React.FC<PropsType> = (
       <Text style={styles.bookSideTitle}>
         The Story – Unstoppable Doom Patrol (2024) #1
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -52,7 +59,7 @@ export const styles = StyleSheet.create({
     borderRadius: scaleSize(10),
     alignItems: "center",
     flexDirection: "row",
-    gap:10
+    gap: 10,
   },
   comicImage: {
     width: scaleSize(104),
@@ -74,6 +81,6 @@ export const styles = StyleSheet.create({
     fontFamily: "DMSans-500",
     fontSize: scaleSize(15),
     alignSelf: "flex-end",
-    flexShrink:1
+    flexShrink: 1,
   },
 });

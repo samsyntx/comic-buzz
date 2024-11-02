@@ -32,11 +32,11 @@ const GetStartedPage = function () {
   };
 
   const handleClickEmailLogin = function () {
-    router.push("pages/login/email-login");
+    router.push("/pages/login/email-login");
   };
 
   const handleClickEmailSignUp = () => {
-    router.push("pages/signup/signup-email");
+    router.push("/pages/signup/signup-email");
   };
 
   return (
