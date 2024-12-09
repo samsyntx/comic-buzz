@@ -13,7 +13,8 @@
       "backgroundColor": "#1B100E"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.samsyntx.comicbuzz"
     },
     "android": {
       "adaptiveIcon": {
